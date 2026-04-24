@@ -20,6 +20,7 @@
   --nav-h:64px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
 html{font-size:16px}
 body{font-family:"Inter",system-ui,sans-serif;background:#fff;color:var(--black);-webkit-font-smoothing:antialiased;min-height:100vh}
 button,input,select,textarea{font-family:inherit}
@@ -208,6 +209,86 @@ a:hover{text-decoration:underline}
 .game-pill{padding:10px 18px;border:1.5px solid var(--gray-60);border-radius:24px;background:var(--white);font-size:14px;font-weight:500;cursor:pointer;transition:background .15s,color .15s,border-color .15s;white-space:nowrap}
 .game-pill:hover{border-color:var(--green-90)}
 .game-pill.selected{background:var(--green-90);color:var(--white);border-color:var(--green-90)}
+
+/* ── STEP 3 SETUP ENTRY CARD ───────────────────────────── */
+.setup-entry-card{background:#eaf4f0;border:1px solid #c5dfd8;border-radius:16px;padding:40px 32px;text-align:center}
+.setup-entry-icon{display:flex;justify-content:center;margin-bottom:16px}
+.setup-entry-headline{font-size:20px;font-weight:700;color:var(--black);margin-bottom:24px;line-height:1.3}
+.setup-entry-btns{display:flex;gap:12px;justify-content:center;margin-bottom:12px}
+.setup-entry-hint{font-size:13px;color:var(--gray-80)}
+
+/* ── SETUP WIZARD MODAL ─────────────────────────────────── */
+.setup-modal{background:#fff;border-radius:16px;width:590px;max-width:calc(100vw - 48px);overflow:hidden}
+.wiz-prog-bar{height:4px;background:var(--gray-40);width:100%}
+.wiz-prog-fill{height:100%;background:var(--green-90);transition:width .35s ease}
+.wiz-header{display:flex;justify-content:space-between;align-items:center;padding:20px 28px 0}
+.wiz-title{font-size:14px;font-weight:700}
+.wiz-count{font-size:14px;color:var(--gray-80);font-weight:500}
+.wiz-body{padding:28px 28px 20px;display:flex;gap:28px;align-items:flex-start;min-height:200px}
+.wiz-q-col{flex:0 0 195px}
+.wiz-q-text{font-size:22px;font-weight:800;line-height:1.25;margin-bottom:10px}
+.wiz-q-helper{font-size:13px;color:var(--green-80);font-weight:600;background:none;border:none;cursor:pointer;padding:0;font-family:inherit}
+.wiz-q-helper:hover{text-decoration:underline}
+.wiz-opt-col{flex:1;display:flex;flex-direction:column}
+.wiz-radio-row{display:flex;align-items:center;gap:10px;border:1.5px solid var(--gray-40);border-radius:8px;padding:12px 14px;cursor:pointer;font-size:14px;font-weight:500;background:#fff;margin-bottom:8px;transition:border-color .15s;user-select:none}
+.wiz-radio-row:last-child{margin-bottom:0}
+.wiz-radio-row:hover{border-color:var(--green-90)}
+.wiz-radio-row.selected{border-color:var(--green-90)}
+.wiz-radio-dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--gray-60);flex-shrink:0;position:relative;transition:border-color .15s}
+.wiz-radio-row.selected .wiz-radio-dot{border-color:var(--green-90)}
+.wiz-radio-row.selected .wiz-radio-dot::after{content:'';width:10px;height:10px;border-radius:50%;background:var(--green-90);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}.wiz-pills-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.wiz-pill{padding:8px 14px;border:1.5px solid var(--gray-40);border-radius:24px;background:#fff;font-size:13px;font-weight:500;cursor:pointer;transition:all .15s;white-space:nowrap;font-family:inherit}
+.wiz-pill:hover{border-color:var(--green-90)}
+.wiz-pill.selected{background:var(--green-90);color:#fff;border-color:var(--green-90)}
+.wiz-tv-counter{display:flex;align-items:center;border:1.5px solid var(--gray-40);border-radius:8px;overflow:hidden;width:100%;margin-top:2px}
+.wiz-tv-counter-ico{padding:0 10px;color:var(--gray-80);display:flex;align-items:center;height:44px;border-right:1px solid var(--gray-40);flex-shrink:0}
+.wiz-tv-count-val{flex:1;font-size:15px;font-weight:600;height:44px;display:flex;align-items:center;padding-left:12px;border:none;outline:none;background:transparent;font-family:inherit;width:48px}
+.wiz-tv-btn{width:40px;height:44px;border:none;background:#fff;cursor:pointer;font-size:20px;font-weight:300;display:flex;align-items:center;justify-content:center;border-left:1px solid var(--gray-40);font-family:inherit;flex-shrink:0;line-height:1}
+.wiz-tv-btn:hover{background:var(--gray-20)}
+.wiz-nfl-hint{background:#eaf4f0;border:1px solid #c5dfd8;border-radius:8px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;margin-top:4px}
+.wiz-nfl-title{font-size:12px;font-weight:700;margin-bottom:2px;color:var(--black)}
+.wiz-nfl-text{font-size:12px;color:var(--gray-80);line-height:1.4}
+.wiz-footer{display:flex;justify-content:space-between;align-items:center;padding:14px 28px 22px;border-top:1px solid var(--gray-40);margin-top:auto}
+.wiz-skip-btn{display:inline-flex;align-items:center;gap:3px;color:var(--green-80);font-size:14px;font-weight:600;background:none;border:none;cursor:pointer;font-family:inherit;white-space:nowrap}
+.wiz-skip-btn:hover{text-decoration:underline;opacity:1}
+.wiz-rec-body{padding:20px 28px 12px}
+.wiz-rec-headline{font-size:20px;font-weight:800;margin-bottom:4px}
+.wiz-rec-sub{font-size:13px;color:var(--gray-80);margin-bottom:16px}
+.wiz-rec-table{border:1px solid var(--gray-40);border-radius:8px;overflow:hidden}
+.wiz-rec-row{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--gray-40);font-size:14px}
+.wiz-rec-row:last-child{border-bottom:none}
+.wiz-rec-counter{display:flex;align-items:center;gap:8px}
+.wiz-rec-counter-btn{width:30px;height:30px;border-radius:6px;border:1.5px solid var(--gray-60);background:#fff;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;line-height:1;font-family:inherit}
+.wiz-rec-counter-btn:hover{border-color:var(--black)}
+.wiz-rec-counter-num{width:30px;text-align:center;font-size:15px;font-weight:700}
+.wiz-rec-divider{height:1px;background:var(--gray-40);margin:0}
+.wiz-rec-total-row{display:flex;align-items:baseline;justify-content:space-between;padding:12px 16px;font-size:14px;font-weight:700}
+.wiz-rec-info{border:1px solid var(--gray-40);border-radius:8px;padding:12px 14px;margin:14px 0 0;display:flex;align-items:flex-start;gap:10px}
+.wiz-rec-info-title{font-size:13px;font-weight:700;margin-bottom:3px}
+.wiz-rec-info-text{font-size:12px;color:var(--gray-80);line-height:1.4;margin-bottom:5px}
+.wiz-rec-info-link{font-size:12px;color:var(--green-80);font-weight:600;background:none;border:none;cursor:pointer;padding:0;font-family:inherit}
+.wiz-rec-info-link:hover{text-decoration:underline}
+.wiz-footer-right{display:flex;gap:16px;align-items:center}
+/* ── Wizard Recommendation Panes ── */
+.wiz-free-block{background:#eaf4f0;border:1.5px solid #c5dfd8;border-radius:10px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.wiz-free-left{display:flex;align-items:center;gap:10px}
+.wiz-free-icon{width:30px;height:30px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid #c5dfd8}
+.wiz-free-label{font-size:13px;font-weight:700;color:var(--black);margin-bottom:2px}
+.wiz-free-sub{font-size:11px;color:var(--green-90);line-height:1.35}
+.wiz-price-table{border:1px solid var(--gray-40);border-radius:8px;overflow:hidden;margin-bottom:12px}
+.wiz-price-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--gray-40);font-size:13px;gap:8px}
+.wiz-price-label{color:var(--gray-90)}
+.wiz-price-divider{height:1px;background:var(--gray-40)}
+.wiz-price-total-row{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;font-size:14px;font-weight:700}
+.wiz-price-sub{font-size:11px;font-weight:400;color:var(--gray-80);margin-left:4px}
+.wiz-success-banner{background:#eaf4f0;border:1.5px solid #c5dfd8;border-radius:10px;padding:16px;display:flex;align-items:flex-start;gap:12px;margin-bottom:16px}
+.wiz-success-icon{flex-shrink:0;margin-top:2px}
+.wiz-success-title{font-size:15px;font-weight:700;color:var(--black);margin-bottom:4px}
+.wiz-success-text{font-size:13px;color:var(--gray-90);line-height:1.45}
+.wiz-hw-summary{border:1px solid var(--gray-40);border-radius:8px;padding:14px 16px}
+.wiz-hw-title{font-size:13px;font-weight:700;margin-bottom:10px}
+.wiz-hw-row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-90);margin-bottom:6px}
+.wiz-hw-row:last-child{margin-bottom:0}
 .nfl-insight{background:var(--green-light);border-radius:var(--radius-sm);padding:14px 16px;display:flex;align-items:flex-start;gap:10px}
 .nfl-insight-icon{font-size:16px;flex-shrink:0;margin-top:1px}
 .nfl-insight-title{font-size:14px;font-weight:700;margin-bottom:3px}
@@ -231,16 +312,21 @@ a:hover{text-decoration:underline}
 .sp-section-sub{font-size:13px;color:var(--gray-80);margin-bottom:14px;line-height:1.5}
 .sp-sub-label{font-size:13px;font-weight:700;margin-bottom:10px;color:var(--black)}
 
-/* Required card */
-.req-stream-card{border:1px solid var(--gray-40);border-radius:var(--radius-md);padding:18px 20px;display:flex;gap:20px;align-items:flex-start}
-.req-stream-left{display:flex;flex-direction:column;gap:6px;min-width:130px}
-.req-stream-icon{width:38px;height:38px;border-radius:8px;background:var(--green-90);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.req-stream-name{font-size:14px;font-weight:700}
-.req-stream-price{font-size:12px;color:var(--gray-80)}
-.req-stream-divider{width:1px;background:var(--gray-40);align-self:stretch;flex-shrink:0;margin:0 4px}
-.req-stream-feats{display:flex;flex-direction:column;gap:8px}
-.req-stream-feat{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.4}
-.req-chk{color:var(--green-90);flex-shrink:0;font-size:14px;margin-top:1px}
+/* Required Streaming Foundation card */
+.rsf-card{border:1px solid var(--gray-40);border-radius:var(--radius-md);overflow:hidden}
+.rsf-top{display:flex}
+.rsf-info{padding:16px 18px;display:flex;flex-direction:column;gap:7px;min-width:175px;flex-shrink:0}
+.rsf-icon{width:30px;height:30px;border-radius:50%;background:var(--green-90);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rsf-name{font-size:14px;font-weight:700}
+.rsf-price{font-size:12px;color:var(--gray-80)}
+.rsf-badges{display:flex;gap:6px;flex-wrap:wrap}
+.rsf-badge-incl{background:#d6ede6;color:#1a5c41;border:1px solid #a8d4c4;border-radius:20px;font-size:10px;font-weight:700;padding:2px 8px}
+.rsf-badge-req{background:var(--gray-20);color:var(--gray-80);border:1px solid var(--gray-60);border-radius:20px;font-size:10px;font-weight:600;padding:2px 8px}
+.rsf-logos{flex:1;background:#f4f4f4;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:8px;padding:12px 20px;align-items:center;justify-items:center;min-height:80px}
+.rsf-hr{height:1px;background:var(--gray-40)}
+.rsf-feats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:14px 18px}
+.rsf-feat-chk{color:var(--green-90);font-size:13px;font-weight:700;display:block;margin-bottom:3px}
+.rsf-feat-txt{font-size:12px;color:var(--gray-90);line-height:1.45}
 
 /* Package cards */
 .sp-pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
@@ -267,11 +353,22 @@ a:hover{text-decoration:underline}
 .sp-offer-banner{height:80px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .sp-offer-badge{position:absolute;top:0;left:0;background:#f5b700;color:#000;font-size:8px;font-weight:800;letter-spacing:.3px;padding:4px 8px;border-radius:0 0 6px 0;white-space:nowrap}
 
-/* EverPass Engage card (single card layout) */
-.engage-sp{border:1px solid var(--gray-40);border-radius:var(--radius-md);overflow:hidden;display:inline-flex;flex-direction:column;max-width:200px}
-.engage-sp-banner{height:90px;background:var(--green-90);display:flex;align-items:center;justify-content:center}
-.engage-sp-body{padding:12px 14px;display:flex;flex-direction:column;gap:4px}
-.engage-sp-footer{padding:10px 14px 14px;display:flex;flex-direction:column;gap:7px}
+/* In Venue Marketing Content card */
+.ivc-card{border:1px solid var(--gray-40);border-radius:var(--radius-md);overflow:hidden}
+.ivc-top{display:flex;min-height:130px}
+.ivc-panel{background:var(--green-90);padding:18px;display:flex;flex-direction:column;gap:8px;width:155px;flex-shrink:0}
+.ivc-panel-icon{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center}
+.ivc-panel-name{font-size:13px;font-weight:700;color:#fff}
+.ivc-panel-price{font-size:12px;color:rgba(255,255,255,.75)}
+.ivc-panel-btn{height:28px;border-radius:5px;border:1.5px solid rgba(255,255,255,.5);background:transparent;color:#fff;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;margin-top:auto}
+.ivc-panel-btn:hover{background:rgba(255,255,255,.1)}
+.ivc-thumbs{flex:1;display:grid;grid-template-columns:repeat(3,1fr)}
+.ivc-thumb{overflow:hidden}
+.ivc-hr{height:1px;background:var(--gray-40)}
+.ivc-feats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:14px 18px}
+.ivc-feat-chk{color:var(--green-90);font-size:13px;font-weight:700;display:block;margin-bottom:2px}
+.ivc-feat-title{font-size:12px;font-weight:700;color:var(--black);margin-bottom:2px}
+.ivc-feat-txt{font-size:11px;color:var(--gray-80);line-height:1.45}
 
 /* Order Summary (new style) */
 .sp-os{background:#fff;border:1px solid var(--gray-40);border-radius:var(--radius-md);padding:20px;position:sticky;top:80px}
@@ -518,6 +615,121 @@ a:hover{text-decoration:underline}
   .nav{padding:0 16px}
   .stepper .step-label{font-size:10px}
 }
+
+/* ── SKELETON LOADER ─────────────────────────────────── */
+@keyframes shimmer{0%{background-position:-600px 0}100%{background-position:600px 0}}
+.skel{background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%);background-size:1200px 100%;animation:shimmer 1.4s infinite linear;border-radius:6px}
+.skel-contact-card{background:#fff;border:1px solid var(--gray-40);border-radius:var(--radius-md);padding:24px;margin-bottom:16px}
+.skel-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.skel-line{height:12px;border-radius:6px}
+.skel-btn{height:28px;width:72px;border-radius:6px}
+.skel-field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.skel-label{height:10px;width:80px;margin-bottom:6px}
+.skel-input{height:36px;width:100%;border-radius:8px}
+.skel-radio-row{display:flex;gap:20px;margin-top:4px}
+.skel-radio{height:14px;width:90px}
+
+/* ── Step 2 Rebuild ─────────────────────────────────────── */
+.s2-outer{max-width:1280px;margin:0 auto;padding:0 56px 48px}
+.s2-header-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin:20px 0}
+.s2-heading{font-size:24px;font-weight:600;margin:0 0 0 3px;color:var(--black)}
+.s2-billing{display:grid;grid-template-columns:1fr 1fr;border:0;padding:0;margin:0;background:transparent}
+.s2-bill-lbl{display:flex;align-items:center;justify-content:center;padding:8px 12px;cursor:pointer;font-size:14px;font-weight:600;text-transform:capitalize;color:var(--green-90);border:1.5px solid var(--green-90);user-select:none;white-space:nowrap;transition:background .15s}
+.s2-bill-lbl:first-child{border-radius:7px 0 0 7px;background:var(--green-light)}
+.s2-bill-lbl:last-child{border-radius:0 7px 7px 0;border-left:none;background:#fff}
+.s2-bill-radio{display:none}
+.s2-columns{display:flex;gap:24px;align-items:flex-start}
+.s2-main{flex:1;min-width:0;border-radius:16px;border:1px solid #cdcdcd;background:#fff;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:24px}
+.s2-sidebar{width:448px;flex-shrink:0;position:sticky;top:80px;align-self:flex-start}
+.s2-sec-hdr{display:flex;flex-direction:column;gap:6px}
+.s2-sec-title{font-size:20px;font-weight:600;color:var(--black);margin:0}
+.s2-sec-sub{font-size:15px;color:#555;margin:0;line-height:1.5}
+.s2-core-bg{background:#f5f5f5;padding:24px;border-radius:16px;display:flex;align-items:flex-start;justify-content:space-between;gap:24px}
+.s2-core-left{display:flex;align-items:center;flex-direction:row;gap:16px;flex-shrink:0;min-width:264px;justify-content:flex-start}
+.s2-core-icon{width:40px;height:40px;border-radius:50%;background:var(--green-90);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
+.s2-core-namegrp{display:flex;flex-direction:column;gap:8px}
+.s2-core-name{font-weight:600;font-size:18px;color:var(--black);letter-spacing:.3px;display:block}
+.s2-core-price{font-size:16px;font-weight:600;color:var(--black);display:flex;align-items:baseline;gap:4px;letter-spacing:.3px}
+.s2-core-unit{font-size:14px;color:#555;font-weight:400}
+.s2-core-sep{width:1px;align-self:stretch;background:#cdcdcd;flex-shrink:0}
+.s2-core-feats{display:flex;flex-direction:column;gap:8px;flex:1;min-width:0}
+.s2-core-feat{display:flex;align-items:flex-start;gap:4px;font-size:14px;color:#555;letter-spacing:.3px;line-height:1.4;list-style:none}
+.s2-core-chk{flex-shrink:0;margin-top:2px;color:var(--black)}
+.s2-hr{border:none;border-top:1px solid #f0f0f0;margin:0}
+.s2-sub-label{font-size:16px;font-weight:600;color:var(--black);margin:0}
+.s2-pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:636px}
+.s2-pkg-card{border-radius:16px;border:1px solid #e8e8e8;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.08);transition:border-color .15s;display:flex;flex-direction:column;min-height:357px}
+.s2-pkg-card{transition:transform 180ms ease,box-shadow 180ms ease}
+.s2-pkg-card:hover{transform:scale(1.02);box-shadow:0 6px 20px rgba(0,0,0,.12);border-color:#cdcdcd}
+.s2-pkg-card.sel{border-color:var(--green-90);border-width:2px}
+.s2-pkg-img{height:144px;border-radius:16px 16px 0 0;display:flex;align-items:center;justify-content:center;padding:0 16px;position:relative;overflow:hidden;flex-shrink:0}
+.s2-pkg-img img{height:64px;width:auto;max-width:120px;object-fit:contain}
+.s2-pkg-body{display:flex;flex-direction:column;justify-content:space-between;gap:12px;padding:16px;flex:1}
+.s2-pkg-space{display:flex;flex-direction:column;gap:4px}
+.s2-pkg-name{font-weight:600;color:var(--black);font-size:14px;margin-bottom:0}
+.s2-pkg-price-row{display:flex;align-items:baseline;gap:2px;flex-wrap:wrap;overflow:hidden}
+.s2-pkg-price{font-weight:600;color:var(--black);font-size:15px}
+.s2-pkg-unit{font-size:14px;color:#7b7b7b}
+.s2-starting-at{font-size:10px;font-weight:700;background:#f5f5f5;padding:1px 4px;border-radius:3px;color:var(--black);vertical-align:middle;margin-left:4px;line-height:1}
+.s2-pkg-desc{font-size:14px;color:#7b7b7b;line-height:1.4;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;min-height:2.8em;margin:0}
+.s2-pkg-btns{display:flex;flex-direction:column;gap:12px}
+.s2-pkg-btn{border-radius:6px;height:36px;font-size:13px;font-weight:600;width:100%;display:flex;align-items:center;justify-content:center;gap:4px;border:2px solid var(--black);background:transparent;color:var(--black);cursor:pointer;font-family:inherit;transition:background .15s,color .15s;white-space:nowrap}
+.s2-pkg-btn:hover{background:var(--black);color:#fff}
+.s2-pkg-btn.sel{background:#eaf4f0;color:var(--black);border-color:var(--green-90)}
+.s2-pkg-btn:focus,.s2-pkg-btn:focus-visible,.s2-pkg-dd-opt:focus,.s2-pkg-dd-opt:focus-visible{outline:none}
+.s2-pkg-btn-wrap{position:relative;width:100%}
+.s2-pkg-dd{position:absolute;top:calc(100% + 4px);left:0;right:0;background:#fff;border:1px solid #e8e8e8;border-radius:10px;box-shadow:0 4px 18px rgba(0,0,0,.13);z-index:60;overflow:hidden}
+.s2-pkg-dd-opt{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;cursor:pointer;transition:background .12s;border:none;width:100%;background:none;font-family:inherit;text-align:left}
+.s2-pkg-dd-opt:hover{background:#f5f5f5}
+.s2-pkg-dd-price{font-size:14px;font-weight:700;color:var(--black)}
+.s2-pkg-dd-term{font-size:13px;color:#7b7b7b}
+.s2-pkg-dd-sep{height:1px;background:#f0f0f0;margin:0 14px}
+.s2-pkg-unsel{display:block;width:100%;text-align:center;padding:10px 14px;font-size:13px;font-weight:600;color:var(--green-80);background:none;border:none;cursor:pointer;font-family:inherit}
+.s2-pkg-unsel:hover{text-decoration:underline}
+.s2-pkg-learn{font-size:14px;font-weight:600;color:var(--green-80);text-align:center;background:none;border:none;cursor:pointer;font-family:inherit}
+.s2-promo-badge{position:absolute;bottom:12px;right:12px;background:#FCC419;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;color:var(--black);letter-spacing:.3px;white-space:nowrap}
+.s2-addon-card{border-radius:16px;border:1px solid #e8e8e8;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.08);overflow:hidden;display:flex;flex-direction:column}
+.s2-addon-top{display:flex;flex-direction:column;gap:12px;padding:16px;flex:1}
+.s2-addon-icon{width:40px;height:40px;border-radius:50%;flex-shrink:0;object-fit:contain}
+.s2-addon-namegrp{display:flex;flex-direction:column;gap:2px}
+.s2-addon-name{font-weight:600;color:var(--black);font-size:14px}
+.s2-addon-price{font-size:15px;font-weight:600;color:var(--black)}
+.s2-addon-unit{font-size:14px;color:#7b7b7b;font-weight:400}
+.s2-addon-bot{padding:0 16px 16px;display:flex;flex-direction:column;gap:12px}
+.s2-addon-btn{border-radius:6px;height:36px;font-size:13px;font-weight:600;width:100%;display:flex;align-items:center;justify-content:center;border:2px solid var(--black);background:transparent;color:var(--black);cursor:pointer;font-family:inherit;transition:background .15s,color .15s}
+.s2-addon-btn:hover{background:var(--black);color:#fff}
+.s2-footer-row{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid #f0f0f0}
+.s2-order-card{border-radius:16px;border:1px solid #cdcdcd;background:#fff;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.s2-os-title{font-size:22px;font-weight:600;color:var(--black)}
+.s2-os-sec{margin-top:12px;border-radius:12px;border:1px solid #e8e8e8;background:#fff;padding:12px}
+.s2-os-sec-ttl{font-size:14px;font-weight:600;color:#555;margin:0}
+.s2-os-product{display:flex;align-items:center;gap:12px;margin-top:12px}
+.s2-os-prod-icon{width:56px;height:56px;border-radius:50%;background:var(--green-90);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
+.s2-os-prod-namegrp{display:flex;flex-direction:column;gap:4px;min-width:0}
+.s2-os-prod-name{font-weight:600;font-size:14px;color:var(--black);display:block}
+.s2-os-prod-price{font-size:14px;font-weight:600;color:var(--black);display:flex;align-items:baseline;gap:2px}
+.s2-os-prod-unit{font-size:12px;color:#555;font-weight:400}
+.s2-os-rows{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.s2-os-row{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.s2-os-row-lbl{font-size:12px;color:#555;margin:0}
+.s2-os-row-val{font-size:12px;font-weight:600;color:var(--black)}
+.s2-os-hr{border:none;border-top:1px solid #e8e8e8;margin:12px 0}
+.s2-os-sum-row{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.s2-os-sum-lbl{font-size:14px;font-weight:600;color:var(--black)}
+.s2-os-sum-val{font-size:14px;font-weight:600;color:var(--black)}
+.s2-os-bottom{display:flex;align-items:center;justify-content:space-between;padding:0 4px;margin-top:16px}
+.s2-os-bottom-lbl{font-size:14px;font-weight:600;color:var(--black)}
+.s2-os-bottom-price{font-size:24px;font-weight:700;color:var(--black)}
+.s2-os-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:0}
+.s2-os-toggle{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;color:var(--black);background:none;border:1px solid #cdcdcd;border-radius:5px;padding:4px 10px;cursor:pointer;font-family:inherit;white-space:nowrap;transition:border-color .15s}
+.s2-os-toggle:hover{border-color:var(--black)}
+.s2-os-body{display:flex;flex-direction:column}
+.s2-fco-notice{background:#e8f4fd;border:1px solid #b3d7f5;border-radius:6px;padding:10px 12px;margin-top:12px;display:flex;gap:8px;align-items:flex-start}
+.s2-fco-notice-ico{width:16px;height:16px;border-radius:50%;background:#0078d4;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.s2-fco-notice-ttl{font-size:11px;font-weight:700;color:#0078d4;margin-bottom:3px}
+.s2-fco-notice-desc{font-size:11px;color:#7b7b7b;line-height:1.4}
+.s2-share-btn{width:100%;height:38px;border-radius:6px;border:1.5px solid #cdcdcd;background:#fff;color:#7b7b7b;font-size:13px;font-weight:600;cursor:not-allowed;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;opacity:.6}
+.s2-share-note{font-size:11px;color:#7b7b7b;text-align:center;line-height:1.4;margin-top:6px}
 </style>
 </head>
 <body>
@@ -570,7 +782,7 @@ a:hover{text-decoration:underline}
   </div>
   <div class="page-body-narrow">
     <h1 class="page-heading">Account &amp; Business</h1>
-    <p class="page-subheading">If your business has 2–5 locations and needs help getting the best price, our team is here to help.</p>
+    <p class="page-subheading">These details help us tailor the right options for your business and support a smoother setup.</p>
     <div class="card">
       <div class="card-title">Contact Information</div>
       <div class="card-subtitle">Tell us a bit about your business to get started</div>
@@ -645,16 +857,16 @@ a:hover{text-decoration:underline}
         </div>
       </div>
       <div style="margin-top:24px">
-        <button class="btn btn-outline btn-lg" onclick="goTo('page-step2')">Save and Continue</button>
+        <button class="btn btn-outline btn-lg" onclick="saveAndContinue()">Save and Continue</button>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════
-     ACCOUNT & BUSINESS — PRE-FILLED STATE
+     STEP 1.5 — SERVICE ADDRESS
 ════════════════════════════════════════════════════════ -->
-<section class="page" id="page-step1">
+<section class="page" id="page-step1-address">
   <div class="stepper-wrap">
     <div class="stepper">
       <div class="step active">
@@ -680,83 +892,172 @@ a:hover{text-decoration:underline}
   </div>
   <div class="page-body-narrow">
     <h1 class="page-heading">Account &amp; Business</h1>
-    <p class="page-subheading">If your business has 2–5 locations and needs help getting the best price, our team is here to help.</p>
+    <p class="page-subheading">These details help us tailor the right options for your business and support a smoother setup.</p>
+
+    <!-- STATE A: Skeleton only (shown immediately on Save and Continue) -->
+    <div id="s1a-skeleton">
+      <div class="skel-contact-card">
+        <div class="skel-row">
+          <div class="skel skel-line" style="width:52%"></div>
+          <div class="skel skel-btn"></div>
+        </div>
+        <div class="skel-field-row">
+          <div>
+            <div class="skel skel-label" style="margin-bottom:6px;width:70px"></div>
+            <div class="skel skel-input"></div>
+          </div>
+          <div>
+            <div class="skel skel-label" style="margin-bottom:6px;width:60px"></div>
+            <div class="skel skel-input"></div>
+          </div>
+        </div>
+        <div class="skel-field-row">
+          <div>
+            <div class="skel skel-label" style="margin-bottom:6px;width:48px"></div>
+            <div class="skel skel-input"></div>
+          </div>
+          <div>
+            <div class="skel skel-label" style="margin-bottom:6px;width:85px"></div>
+            <div class="skel skel-input"></div>
+          </div>
+        </div>
+        <div class="skel-field-row">
+          <div>
+            <div class="skel skel-label" style="margin-bottom:6px;width:40px"></div>
+            <div class="skel skel-input"></div>
+          </div>
+          <div>
+            <div class="skel skel-label" style="margin-bottom:6px;width:90px"></div>
+            <div class="skel skel-input"></div>
+          </div>
+        </div>
+        <div style="margin-top:10px">
+          <div class="skel skel-label" style="margin-bottom:8px;width:130px"></div>
+          <div class="skel-radio-row">
+            <div class="skel skel-radio" style="width:80px"></div>
+            <div class="skel skel-radio" style="width:95px"></div>
+            <div class="skel skel-radio" style="width:80px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATE B: Pre-filled contact info card + address form (shown after 1.5s) -->
+    <div id="s1a-prefilled" hidden>
+      <div class="card" style="margin-bottom:16px">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px">
+          <div>
+            <div class="card-title" style="margin-bottom:12px">Contact Information</div>
+            <div style="font-size:14px;line-height:1.9;color:var(--black)">
+              Melissa Howard<br/>
+              (568) 123-4567<br/>
+              melissahoward@gmail.com<br/>
+              1 Location
+            </div>
+          </div>
+          <button class="btn btn-outline btn-sm" style="flex-shrink:0" onclick="goTo('page-step1-empty')">Edit</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service Address card (always visible) -->
+    <div id="s1a-address">
     <div class="card">
-      <div class="card-title">Contact Information</div>
-      <div class="card-subtitle">Tell us a bit about your business to get started</div>
+      <div class="card-title">Service Address</div>
+      <div class="card-subtitle">Where EverPass will be used and installed</div>
       <div class="form-grid">
         <div class="form-group">
-          <label class="form-label">First Name <span class="required">*</span></label>
+          <label class="form-label">Business Name <span class="required">*</span></label>
           <div class="input-wrap">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="3" stroke="#888" stroke-width="1.4"/><path d="M2 14c0-3 2.7-5 6-5s6 2 6 5" stroke="#888" stroke-width="1.4" stroke-linecap="round"/></svg>
-            <input type="text" placeholder="John"/>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="5" width="12" height="9" rx="1" stroke="#888" stroke-width="1.3"/><path d="M5 5V4a3 3 0 0 1 6 0v1" stroke="#888" stroke-width="1.3"/><line x1="6" y1="9" x2="6" y2="11" stroke="#888" stroke-width="1.2" stroke-linecap="round"/><line x1="10" y1="9" x2="10" y2="11" stroke="#888" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <input type="text" placeholder="Example Business Names"/>
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Last Name <span class="required">*</span></label>
+          <label class="form-label">Legal Company Name</label>
           <div class="input-wrap">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="3" stroke="#888" stroke-width="1.4"/><path d="M2 14c0-3 2.7-5 6-5s6 2 6 5" stroke="#888" stroke-width="1.4" stroke-linecap="round"/></svg>
-            <input type="text" placeholder="Smith"/>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="5" width="14" height="10" rx="1" stroke="#888" stroke-width="1.3"/><path d="M5 5V3a3 3 0 0 1 6 0v2" stroke="#888" stroke-width="1.3"/><line x1="5" y1="9" x2="11" y2="9" stroke="#888" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <input type="text" placeholder="Example Legal Company Name"/>
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Phone <span class="required">*</span></label>
+          <label class="form-label">State <span class="required">*</span></label>
           <div class="input-wrap">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 2h3l1 3-1.5 1.5a9 9 0 0 0 3 3L10 8l3 1v3a1 1 0 0 1-1 1C5 13 2 6.5 2 3a1 1 0 0 1 1-1Z" stroke="#888" stroke-width="1.3"/></svg>
-            <input type="tel" placeholder="(555) 123-4567"/>
-          </div>
-          <span class="input-hint">Used for account setup and support</span>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Business Type <span class="required">*</span></label>
-          <div class="input-wrap">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="5" width="12" height="9" rx="1" stroke="#888" stroke-width="1.3"/><path d="M5 5V4a3 3 0 0 1 6 0v1" stroke="#888" stroke-width="1.3"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2a4.5 4.5 0 0 1 4.5 4.5c0 3-4.5 8-4.5 8S3.5 9.5 3.5 6.5A4.5 4.5 0 0 1 8 2Z" stroke="#888" stroke-width="1.3"/><circle cx="8" cy="6.5" r="1.5" stroke="#888" stroke-width="1.2"/></svg>
             <select>
-              <option>Restaurant</option>
-              <option>Bar</option>
-              <option>Hotel</option>
-              <option>Casino</option>
-              <option>Other</option>
+              <option value="NY" selected>NY</option>
+              <option value="CA">CA</option>
+              <option value="TX">TX</option>
+              <option value="FL">FL</option>
+              <option value="IL">IL</option>
+              <option value="PA">PA</option>
+              <option value="OH">OH</option>
+              <option value="GA">GA</option>
+              <option value="NC">NC</option>
+              <option value="MI">MI</option>
             </select>
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Email <span class="required">*</span></label>
+          <label class="form-label">City <span class="required">*</span></label>
           <div class="input-wrap">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="9" rx="1.5" stroke="#888" stroke-width="1.3"/><path d="M2 5l6 5 6-5" stroke="#888" stroke-width="1.3"/></svg>
-            <input type="email" placeholder="john@example.com"/>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="7" width="14" height="8" rx="1" stroke="#888" stroke-width="1.3"/><rect x="4" y="4" width="8" height="4" stroke="#888" stroke-width="1.2"/><rect x="6" y="1" width="4" height="4" stroke="#888" stroke-width="1.2"/></svg>
+            <select>
+              <option value="New York" selected>New York</option>
+              <option value="Buffalo">Buffalo</option>
+              <option value="Rochester">Rochester</option>
+              <option value="Yonkers">Yonkers</option>
+              <option value="Syracuse">Syracuse</option>
+            </select>
           </div>
-          <span class="input-hint">Business email recommended</span>
+        </div>
+        <div class="form-group full">
+          <label class="form-label">Street Address <span class="required">*</span></label>
+          <div class="input-wrap">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2a4.5 4.5 0 0 1 4.5 4.5c0 3-4.5 8-4.5 8S3.5 9.5 3.5 6.5A4.5 4.5 0 0 1 8 2Z" stroke="#888" stroke-width="1.3"/><circle cx="8" cy="6.5" r="1.5" stroke="#888" stroke-width="1.2"/></svg>
+            <input type="text" placeholder="123 Main Street"/>
+          </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Confirm Email <span class="required">*</span></label>
+          <label class="form-label">ZIP Code <span class="required">*</span></label>
           <div class="input-wrap">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="9" rx="1.5" stroke="#888" stroke-width="1.3"/><path d="M2 5l6 5 6-5" stroke="#888" stroke-width="1.3"/></svg>
-            <input type="email" placeholder="john@example.com"/>
+            <input type="text" placeholder="12345"/>
           </div>
         </div>
+        <div class="form-group">
+          <label class="form-label">Fire Code Occupancy (FCO)</label>
+          <div class="input-wrap">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.5 3.5L13 6l-2.5 2.5.5 3.5L8 10.5 5 12l.5-3.5L3 6l3.5-.5L8 2Z" stroke="#888" stroke-width="1.2"/></svg>
+            <input id="s1a-fco-input" type="text" placeholder="123"/>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="cursor:pointer;flex-shrink:0" title="Maximum number of people allowed under local regulations."><circle cx="8" cy="8" r="6.5" stroke="#888" stroke-width="1.3"/><line x1="8" y1="7" x2="8" y2="11" stroke="#888" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="5" r=".8" fill="#888"/></svg>
+          </div>
+          <span class="input-hint">Maximum number of people allowed under local regulations.</span>
+        </div>
         <div class="form-group full">
-          <label class="form-label">Number Of Locations <span class="required">*</span></label>
-          <div class="input-hint" style="margin-bottom:8px">How many business locations are you setting up for service?</div>
+          <label class="form-label">Franchise Location <span class="required">*</span></label>
+          <div style="font-size:12px;color:var(--gray-80);margin-bottom:8px;line-height:1.5">Are you part of a franchise? These locations are supported through our Enterprise plans.</div>
           <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="locations" value="1" checked/> 1 Location</label>
-            <label class="radio-label"><input type="radio" name="locations" value="2-5"/> 2–5 Locations</label>
-            <label class="radio-label"><input type="radio" name="locations" value="6+"/> 6+ Locations</label>
+            <label class="radio-label"><input type="radio" name="franchise" value="yes"/> Yes</label>
+            <label class="radio-label"><input type="radio" name="franchise" value="no" checked/> No</label>
           </div>
-        </div>
-        <hr class="form-divider"/>
-        <div class="form-group full">
-          <label class="checkbox-row">
-            <input type="checkbox" checked/>
-            <span>Subscribe me to EverPass email updates</span>
-          </label>
-          <p class="legal-text">By submitting this form, I agree to be bound by the EverPass <a href="#">Terms of Use</a> and acknowledge and consent to the practices described in EverPass' <a href="#">Privacy Policy</a> and <a href="#">CA Privacy Notice</a></p>
         </div>
       </div>
-      <div style="margin-top:24px">
-        <button class="btn btn-outline btn-lg" onclick="goTo('page-step2')">Save and Continue</button>
+
+      <!-- FCO info banner -->
+      <div class="info-banner" style="margin-top:20px;margin-bottom:0">
+        <div class="info-banner-icon">i</div>
+        <div>
+          <div class="info-banner-desc">FCO is optional at this step — enter it to see accurate pricing for your venue, or skip to see estimated pricing. You'll need it before review and payment.</div>
+        </div>
       </div>
     </div>
+
+    <div class="page-footer">
+      <div></div>
+      <button class="btn btn-primary btn-lg" onclick="continueToStep2()">Continue →</button>
+    </div>
+    </div><!-- /s1a-address -->
   </div>
 </section>
 
@@ -775,241 +1076,430 @@ a:hover{text-decoration:underline}
       <div class="step pending"><div class="step-circle">4</div><div class="step-label">Review &amp; Pay</div></div>
     </div>
   </div>
-  <div class="psp-page-body">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px">
-      <h1 class="page-heading" style="margin-bottom:0">Select Packages</h1>
-      <div class="billing-toggle">
-        <button class="billing-tab active" onclick="switchBillingTab(this)">Monthly</button>
-        <button class="billing-tab" onclick="switchBillingTab(this)">Annual</button>
-      </div>
+
+  <div class="s2-outer">
+    <!-- Header row -->
+    <div class="s2-header-row">
+      <h2 class="s2-heading">Select Packages</h2>
+      <fieldset class="s2-billing">
+        <label class="s2-bill-lbl"><input type="radio" class="s2-bill-radio" name="s2billing" value="monthly" checked>monthly</label>
+        <label class="s2-bill-lbl"><input type="radio" class="s2-bill-radio" name="s2billing" value="annual">annual</label>
+      </fieldset>
     </div>
-    <div class="sp-layout">
-      <!-- ── MAIN CONTENT ──────────────────────────────────── -->
-      <div>
 
-        <!-- REQUIRED STREAMING FOUNDATION -->
-        <div class="sp-section">
-          <div class="sp-section-title">Required Streaming Foundation</div>
-          <div class="sp-section-sub">The core platform required to stream and manage EverPass content</div>
-          <div class="req-stream-card">
-            <div class="req-stream-left">
-              <div class="req-stream-icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="2.2" fill="#fff"/><ellipse cx="10" cy="10" rx="8.5" ry="3.6" stroke="#fff" stroke-width="1.3"/><ellipse cx="10" cy="10" rx="8.5" ry="3.6" stroke="#fff" stroke-width="1.3" transform="rotate(60 10 10)"/><ellipse cx="10" cy="10" rx="8.5" ry="3.6" stroke="#fff" stroke-width="1.3" transform="rotate(-60 10 10)"/></svg>
-              </div>
-              <div class="req-stream-name">EverPass Core</div>
-              <div class="req-stream-price">$64.99 /month</div>
-            </div>
-            <div class="req-stream-divider"></div>
-            <div class="req-stream-feats">
-              <div class="req-stream-feat"><span class="req-chk">✓</span>Schedule events, build playlists and control every screen from one dashboard</div>
-              <div class="req-stream-feat"><span class="req-chk">✓</span>Smart event discovery with personalized recommendations</div>
-              <div class="req-stream-feat"><span class="req-chk">✓</span>Unlocks premium sports content from Apple TV, Prime Video and Paramount+</div>
+    <!-- Two-column layout -->
+    <div class="s2-columns">
+
+      <!-- ── MAIN CONTENT ── -->
+      <div class="s2-main">
+
+        <!-- 1. Required Streaming Foundation -->
+        <div class="s2-sec-hdr">
+          <h3 class="s2-sec-title">Required Streaming Foundation</h3>
+          <p class="s2-sec-sub">The core platform required to stream and manage EverPass content</p>
+        </div>
+        <div class="s2-core-bg">
+          <div class="s2-core-left">
+            <div class="s2-core-icon"><img src="https://cdn.upshow.tv/buyflow/CORE.png" width="40" height="40" alt="EverPass Core" style="object-fit:contain"></div>
+            <div class="s2-core-namegrp">
+              <span class="s2-core-name">EverPass Core</span>
+              <p class="s2-core-price"><span>$34.99</span><span class="s2-core-unit">/month</span></p>
             </div>
           </div>
+          <div class="s2-core-sep"></div>
+          <ul class="s2-core-feats">
+            <li class="s2-core-feat">
+              <svg class="s2-core-chk" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Schedule events, build playlists and control every screen from one dashboard</span>
+            </li>
+            <li class="s2-core-feat">
+              <svg class="s2-core-chk" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Smart event discovery with personalized recommendations</span>
+            </li>
+            <li class="s2-core-feat">
+              <svg class="s2-core-chk" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Unlocks premium sports content from Apple TV, Prime Video and Paramount+</span>
+            </li>
+          </ul>
         </div>
 
-        <!-- SPORTS SUBSCRIPTION PACKAGES -->
-        <div class="sp-section">
-          <div class="sp-section-title">Sports Subscription Packages</div>
-          <div class="sp-section-sub">Commercial sports packages available for your business</div>
+        <hr class="s2-hr">
 
-          <div class="sp-sub-label">Packages</div>
-          <div class="sp-pkg-grid">
-
-            <!-- NFL Sunday Ticket -->
-            <div class="sp-pkg-card">
-              <div class="sp-pkg-banner" style="background:linear-gradient(160deg,#0d2a14 0%,#1a4a25 60%,#0d3a1a 100%)">
-                <div style="text-align:center;color:#fff">
-                  <div style="font-size:9px;font-weight:900;letter-spacing:1px;opacity:.7;text-transform:uppercase;margin-bottom:4px">NFL</div>
-                  <div style="font-size:16px;font-weight:900;letter-spacing:.5px;line-height:1.1">SUNDAY<br>TICKET</div>
-                </div>
-              </div>
-              <div class="sp-pkg-body">
-                <div class="sp-pkg-name">NFL Sunday Ticket</div>
-                <div class="sp-pkg-price">$761,25 <span>/installment | 8 install…</span></div>
-                <div class="sp-pkg-desc">Every out-of-market Sunday afternoon game.</div>
-              </div>
-              <div class="sp-pkg-footer">
-                <button class="btn-pkg-gray">Package Selected</button>
-                <button class="sp-learn">Learn More</button>
-              </div>
+        <!-- 2. Sports Subscription Packages -->
+        <div class="s2-sec-hdr">
+          <h3 class="s2-sec-title" style="font-size:18px">Sports Subscription Packages</h3>
+          <p class="s2-sec-sub" style="font-size:14px">Commercial sports packages available for your business</p>
+        </div>
+        <div class="s2-sub-label">Packages</div>
+        <div class="s2-pkg-grid">
+          <div class="s2-pkg-card" id="pkg-espn">
+            <div class="s2-pkg-img" style="background:linear-gradient(to right,#000,#003264)">
+              <img src="https://cdn.upshow.tv/buyflow/ESPN.png" alt="ESPN+ for Business">
             </div>
-
-            <!-- ESPN+ for Business -->
-            <div class="sp-pkg-card">
-              <div class="sp-pkg-banner" style="background:linear-gradient(160deg,#001030 0%,#002060 60%,#001848 100%)">
-                <div style="text-align:center;color:#fff">
-                  <div style="font-size:20px;font-weight:900;letter-spacing:.5px">ESPN+</div>
-                  <div style="font-size:10px;font-weight:600;opacity:.8;letter-spacing:.3px">FOR BUSINESS</div>
-                </div>
+            <div class="s2-pkg-body">
+              <div class="s2-pkg-space">
+                <div class="s2-pkg-name">ESPN+ for Business</div>
+                <div class="s2-pkg-price-row"><span class="s2-pkg-price">$224.99</span><span class="s2-pkg-unit"> /month</span></div>
+                <p class="s2-pkg-desc">2,500+ events including NHL, college sports, LaLiga and more</p>
               </div>
-              <div class="sp-pkg-body">
-                <div class="sp-pkg-name">ESPN+ for Business</div>
-                <div class="sp-pkg-price">$224.99<span>/month</span></div>
-                <div class="sp-pkg-desc">2,500+ events including NHL, college sports, LaLiga and more</div>
-              </div>
-              <div class="sp-pkg-footer">
-                <button class="btn-pkg-dark"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Selected</button>
-                <button class="sp-learn">Learn More</button>
-              </div>
-            </div>
-
-            <!-- Peacock Sports Pass -->
-            <div class="sp-pkg-card">
-              <div class="sp-pkg-banner" style="background:linear-gradient(160deg,#1a1200 0%,#6b4a00 60%,#8b6000 100%)">
-                <div class="sp-pkg-promo-tag">15% OFF BUYING NFL ST</div>
-                <div style="text-align:center;color:#fff">
-                  <div class="psp-feathers" style="margin-bottom:4px">
-                    <div class="psp-feather" style="background:#0034df;height:22px"></div>
-                    <div class="psp-feather" style="background:#00b050;height:22px"></div>
-                    <div class="psp-feather" style="background:#ffbb00;height:22px"></div>
-                    <div class="psp-feather" style="background:#6200ea;height:22px"></div>
-                    <div class="psp-feather" style="background:#ff007f;height:22px"></div>
+              <div class="s2-pkg-btns">
+                <div class="s2-pkg-btn-wrap">
+                  <button class="s2-pkg-btn" id="pkg-espn-btn" onclick="togglePkgDd('espn')">
+                    Select Package <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </button>
+                  <div class="s2-pkg-dd" id="pkg-espn-dd" hidden>
+                              <button class="s2-pkg-dd-opt" onclick="selectPkgOption('espn','$2,699.88','1 Installment')">
+              <span class="s2-pkg-dd-price">$2,699.88</span><span class="s2-pkg-dd-term"> /1 Installment</span>
+            </button>
+          <div class="s2-pkg-dd-sep"></div>
+          <button class="s2-pkg-dd-opt" onclick="selectPkgOption('espn','$899.96','3 Installments')">
+              <span class="s2-pkg-dd-price">$899.96</span><span class="s2-pkg-dd-term"> /3 Installments</span>
+            </button>
+          <div class="s2-pkg-dd-sep"></div>
+          <button class="s2-pkg-dd-opt" onclick="selectPkgOption('espn','$449.98','6 Installments')">
+              <span class="s2-pkg-dd-price">$449.98</span><span class="s2-pkg-dd-term"> /6 Installments</span>
+            </button>
+          <div class="s2-pkg-dd-sep"></div>
+          <button class="s2-pkg-dd-opt" onclick="selectPkgOption('espn','$337.49','8 Installments')">
+              <span class="s2-pkg-dd-price">$337.49</span><span class="s2-pkg-dd-term"> /8 Installments</span>
+            </button>
+                    <div class="s2-pkg-dd-sep"></div>
+                    <button class="s2-pkg-unsel" onclick="unselectPkg('espn')">Unselect Package</button>
                   </div>
-                  <div style="font-size:10px;font-weight:800;letter-spacing:.4px">PEACOCK SPORTS PASS</div>
                 </div>
-              </div>
-              <div class="sp-pkg-body">
-                <div class="sp-pkg-name">Peacock Sports Pass</div>
-                <div class="sp-pkg-price">$219.98<span>/month</span></div>
-                <div class="sp-pkg-desc">Exclusive Premier League, NBA, college sports and more</div>
-              </div>
-              <div class="sp-pkg-footer">
-                <button class="btn-pkg-out">Select Package <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                <button class="sp-learn">Learn More</button>
+                <button class="s2-pkg-learn">Learn More</button>
               </div>
             </div>
-
-          </div><!-- /sp-pkg-grid -->
-
-          <!-- Offers -->
-          <div class="sp-sub-label" style="margin-top:20px">Offers</div>
-          <div class="sp-offer-grid">
-
-            <!-- Bundle 1: NFL Best -->
-            <div class="sp-offer-card">
-              <div class="sp-offer-banner" style="background:linear-gradient(135deg,#0a1a0a 0%,#1a3a1a 100%)">
-                <div class="sp-offer-badge">40% OFF</div>
-                <div style="text-align:center;color:#fff;padding:0 12px">
-                  <div style="font-size:9px;font-weight:900;letter-spacing:.8px;opacity:.8">NFL SUNDAY TICKET</div>
-                  <div style="font-size:11px;font-weight:700;margin-top:2px;opacity:.9">Up to $3,500 in Savings</div>
+          </div>
+          <div class="s2-pkg-card" id="pkg-nfl">
+            <div class="s2-pkg-img" style="background:linear-gradient(to right,#000,#114c2b,#25a15b)">
+              <img src="https://cdn.upshow.tv/buyflow/NFL.png" alt="NFL Sunday Ticket"><span class="s2-promo-badge" style="top:12px;left:auto;right:12px;bottom:auto;background:#f5b700">40% OFF</span>
+            </div>
+            <div class="s2-pkg-body">
+              <div class="s2-pkg-space">
+                <div class="s2-pkg-name">NFL Sunday Ticket</div>
+                <div class="s2-pkg-price-row"><span class="s2-pkg-price">$761.25</span><span class="s2-pkg-unit"> /8 installments</span></div>
+                <p class="s2-pkg-desc">Every out-of-market Sunday afternoon game</p>
+              </div>
+              <div class="s2-pkg-btns">
+                <div class="s2-pkg-btn-wrap">
+                  <button class="s2-pkg-btn" id="pkg-nfl-btn" onclick="togglePkgDd('nfl')">
+                    Select Package <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </button>
+                  <div class="s2-pkg-dd" id="pkg-nfl-dd" hidden>
+                              <button class="s2-pkg-dd-opt" onclick="selectPkgOption('nfl','$3,200.00','1 Installment')">
+              <span class="s2-pkg-dd-price">$3,200.00</span><span class="s2-pkg-dd-term"> /1 Installment</span>
+            </button>
+          <div class="s2-pkg-dd-sep"></div>
+          <button class="s2-pkg-dd-opt" onclick="selectPkgOption('nfl','$1,066.66','3 Installments')">
+              <span class="s2-pkg-dd-price">$1,066.66</span><span class="s2-pkg-dd-term"> /3 Installments</span>
+            </button>
+          <div class="s2-pkg-dd-sep"></div>
+          <button class="s2-pkg-dd-opt" onclick="selectPkgOption('nfl','$640.00','5 Installments')">
+              <span class="s2-pkg-dd-price">$640.00</span><span class="s2-pkg-dd-term"> /5 Installments</span>
+            </button>
+          <div class="s2-pkg-dd-sep"></div>
+          <button class="s2-pkg-dd-opt" onclick="selectPkgOption('nfl','$533.33','6 Installments')">
+              <span class="s2-pkg-dd-price">$533.33</span><span class="s2-pkg-dd-term"> /6 Installments</span>
+            </button>
+          <div class="s2-pkg-dd-sep"></div>
+          <button class="s2-pkg-dd-opt" onclick="selectPkgOption('nfl','$457.14','7 Installments')">
+              <span class="s2-pkg-dd-price">$457.14</span><span class="s2-pkg-dd-term"> /7 Installments</span>
+            </button>
+          <div class="s2-pkg-dd-sep"></div>
+          <button class="s2-pkg-dd-opt" onclick="selectPkgOption('nfl','$400.00','8 Installments')">
+              <span class="s2-pkg-dd-price">$400.00</span><span class="s2-pkg-dd-term"> /8 Installments</span>
+            </button>
+                    <div class="s2-pkg-dd-sep"></div>
+                    <button class="s2-pkg-unsel" onclick="unselectPkg('nfl')">Unselect Package</button>
+                  </div>
                 </div>
-              </div>
-              <div class="sp-pkg-body">
-                <div class="sp-pkg-name">NFL Sunday Ticket: Best…</div>
-                <div class="sp-pkg-price">$00.00<span>/month | x5 installments</span></div>
-                <div class="sp-pkg-desc">Up to 40% off NFL Sunday Ticket, 6 months of EverPass C…</div>
-              </div>
-              <div class="sp-pkg-footer">
-                <button class="btn-pkg-out">Select Bundle <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-                <button class="sp-learn">Learn More</button>
+                <button class="s2-pkg-learn">Learn More</button>
               </div>
             </div>
-
-            <!-- Bundle 2: NFL + Peacock -->
-            <div class="sp-offer-card">
-              <div class="sp-offer-banner" style="background:linear-gradient(135deg,#0a1a0a 0%,#2a1a0a 100%)">
-                <div class="sp-offer-badge">40% OFF</div>
-                <div style="text-align:center;color:#fff;padding:0 12px">
-                  <div style="font-size:9px;font-weight:900;letter-spacing:.8px;opacity:.8">NFL SUNDAY TICKET + PEACOCK</div>
-                  <div style="font-size:10px;font-weight:600;margin-top:2px;opacity:.8">Best Offer of the Season</div>
+          </div>
+          <div class="s2-pkg-card" id="pkg-peacock">
+            <div class="s2-pkg-img" style="background:linear-gradient(to right,#000,#7d6509,#fccc13)">
+              <img src="https://cdn.upshow.tv/buyflow/PEACOCK.png" alt="Peacock Sports Pass"><span class="s2-promo-badge">15% OFF BUYING NFL ST</span>
+            </div>
+            <div class="s2-pkg-body">
+              <div class="s2-pkg-space">
+                <div class="s2-pkg-name">Peacock Sports Pass</div>
+                <div class="s2-pkg-price-row"><span class="s2-pkg-price">$329.99</span><span class="s2-pkg-unit"> /month</span></div>
+                <p class="s2-pkg-desc">Exclusive Premier League, NBA, college sports and more</p>
+              </div>
+              <div class="s2-pkg-btns">
+                <div class="s2-pkg-btn-wrap">
+                  <button class="s2-pkg-btn" id="pkg-peacock-btn" onclick="togglePkgDd('peacock')">
+                    Select Package <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </button>
+                  <div class="s2-pkg-dd" id="pkg-peacock-dd" hidden>
+                              <button class="s2-pkg-dd-opt" onclick="selectPkgOption('peacock','$3,959.88','1 Installment')">
+              <span class="s2-pkg-dd-price">$3,959.88</span><span class="s2-pkg-dd-term"> /1 Installment</span>
+            </button>
+          <div class="s2-pkg-dd-sep"></div>
+          <button class="s2-pkg-dd-opt" onclick="selectPkgOption('peacock','$1,319.96','3 Installments')">
+              <span class="s2-pkg-dd-price">$1,319.96</span><span class="s2-pkg-dd-term"> /3 Installments</span>
+            </button>
+          <div class="s2-pkg-dd-sep"></div>
+          <button class="s2-pkg-dd-opt" onclick="selectPkgOption('peacock','$659.98','6 Installments')">
+              <span class="s2-pkg-dd-price">$659.98</span><span class="s2-pkg-dd-term"> /6 Installments</span>
+            </button>
+          <div class="s2-pkg-dd-sep"></div>
+          <button class="s2-pkg-dd-opt" onclick="selectPkgOption('peacock','$494.99','8 Installments')">
+              <span class="s2-pkg-dd-price">$494.99</span><span class="s2-pkg-dd-term"> /8 Installments</span>
+            </button>
+                    <div class="s2-pkg-dd-sep"></div>
+                    <button class="s2-pkg-unsel" onclick="unselectPkg('peacock')">Unselect Package</button>
+                  </div>
                 </div>
+                <button class="s2-pkg-learn">Learn More</button>
               </div>
-              <div class="sp-pkg-body">
-                <div class="sp-pkg-name">NFL Sunday Ticket + Pea…</div>
-                <div class="sp-pkg-price">$00.00<span>/month | x5 installments</span></div>
-                <div class="sp-pkg-desc">Best Offer of the Season + 40% off Peacock Sports Pass</div>
-              </div>
-              <div class="sp-pkg-footer">
-                <button class="btn-pkg-dark"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Selected</button>
-                <button class="sp-learn">Learn More</button>
-              </div>
-            </div>
-
-          </div><!-- /sp-offer-grid -->
-        </div><!-- /Sports section -->
-
-        <!-- EVERPASS ENGAGE -->
-        <div class="sp-section">
-          <div class="sp-section-title">EverPass Engage</div>
-          <div class="sp-section-sub">Digital signage trusted by leading national brands</div>
-          <div class="engage-sp">
-            <div class="engage-sp-banner">
-              <svg width="36" height="36" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="2.2" fill="#fff"/><ellipse cx="10" cy="10" rx="8.5" ry="3.6" stroke="#fff" stroke-width="1.3"/><ellipse cx="10" cy="10" rx="8.5" ry="3.6" stroke="#fff" stroke-width="1.3" transform="rotate(60 10 10)"/><ellipse cx="10" cy="10" rx="8.5" ry="3.6" stroke="#fff" stroke-width="1.3" transform="rotate(-60 10 10)"/></svg>
-            </div>
-            <div class="engage-sp-body">
-              <div class="engage-sp-name">EverPass Engage</div>
-              <div style="font-size:12px;color:var(--gray-80)">$69.99 /month</div>
-              <div style="font-size:12px;color:var(--gray-80);line-height:1.4;margin-top:2px">Digital signage trusted by leading national brands</div>
-            </div>
-            <div class="engage-sp-footer">
-              <button class="btn-pkg-out">Select Package</button>
-              <button class="sp-learn">Learn More</button>
             </div>
           </div>
         </div>
 
-        <!-- ADD-ONS -->
-        <div class="sp-section">
-          <div class="sp-section-title">Add-ons Available in Your Market</div>
-          <div class="sp-section-sub">Optional services available based on your location and selected packages</div>
-          <div class="addons-grid3">
-            <div class="addon-c">
-              <div class="addon-ico" style="background:#cc0000;border-radius:50%">CSN</div>
-              <div class="addon-nm">Chicago Sports Network</div>
-              <div class="addon-pr">$20 /per month</div>
-              <button class="btn-addon3">Select Add-on</button>
-              <button class="btn-ln-addon">Learn More</button>
+        <hr class="s2-hr">
+
+        <!-- 3. EverPass Engage -->
+        <div class="s2-sec-hdr">
+          <h3 class="s2-sec-title" style="font-size:18px">EverPass Engage</h3>
+          <p class="s2-sec-sub" style="font-size:14px">Digital signage trusted by leading national brands</p>
+        </div>
+        <div class="s2-pkg-grid">
+          <div class="s2-pkg-card">
+            <div class="s2-pkg-img" style="background:linear-gradient(to right,#003123,#003123)">
+              <img src="https://cdn.upshow.tv/buyflow/ENGAGE.png" alt="EverPass Engage">
             </div>
-            <div class="addon-c">
-              <div class="addon-ico" style="background:#003087;border-radius:50%">YES<br>NET</div>
-              <div class="addon-nm">YES Network</div>
-              <div class="addon-pr">$20 /per month</div>
-              <button class="btn-addon3">Select Add-on</button>
-              <button class="btn-ln-addon">Learn More</button>
-            </div>
-            <div class="addon-c">
-              <div class="addon-ico" style="background:#1a237e;border-radius:50%">NE</div>
-              <div class="addon-nm">New England Sports</div>
-              <div class="addon-pr">$20 /per month</div>
-              <button class="btn-addon3">Select Add-on</button>
-              <button class="btn-ln-addon">Learn More</button>
+            <div class="s2-pkg-body">
+              <div class="s2-pkg-space">
+                <div class="s2-pkg-name">EverPass Engage</div>
+                <div class="s2-pkg-price-row"><span class="s2-pkg-price">$109.99</span><span class="s2-pkg-unit"> /month</span></div>
+                <p class="s2-pkg-desc">Digital signage trusted by leading national brands</p>
+              </div>
+              <div class="s2-pkg-btns">
+                <button class="s2-pkg-btn" onclick="this.classList.toggle('sel')">Select Package</button>
+                <button class="s2-pkg-learn">Learn More</button>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="page-footer">
-          <button class="btn-back" onclick="goTo('page-step1')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <hr class="s2-hr">
+
+        <!-- 4. Add-ons Available in Your Market -->
+        <div class="s2-sec-hdr">
+          <h3 class="s2-sec-title" style="font-size:18px">Add-ons Available in Your Market</h3>
+          <p class="s2-sec-sub" style="font-size:14px">Optional services available based on your location and selected packages</p>
+        </div>
+        <div class="s2-pkg-grid">
+          <!-- Chicago Sports Network -->
+          <div class="s2-addon-card">
+            <div class="s2-addon-top">
+              <img src="https://cdn.upshow.tv/buyflow/CHSN.png" alt="Chicago Sports Network" class="s2-addon-icon">
+              <div class="s2-addon-namegrp">
+                <div class="s2-addon-name">Chicago Sports Network</div>
+                <div><span class="s2-addon-price">$74.99</span><span class="s2-addon-unit"> /per month</span></div>
+              </div>
+            </div>
+            <div class="s2-addon-bot">
+              <button class="s2-addon-btn">Select Add-on</button>
+              <button class="s2-pkg-learn">Learn More</button>
+            </div>
+          </div>
+          <!-- YES Network -->
+          <div class="s2-addon-card">
+            <div class="s2-addon-top">
+              <img src="https://cdn.upshow.tv/buyflow/YES.png" alt="YES Network" class="s2-addon-icon">
+              <div class="s2-addon-namegrp">
+                <div class="s2-addon-name">YES Network</div>
+                <div><span class="s2-addon-price">$287.99</span><span class="s2-addon-unit"> /per month</span></div>
+              </div>
+            </div>
+            <div class="s2-addon-bot">
+              <button class="s2-addon-btn">Select Add-on</button>
+              <button class="s2-pkg-learn">Learn More</button>
+            </div>
+          </div>
+          <!-- Brightsign -->
+          <div class="s2-addon-card">
+            <div class="s2-addon-top">
+              <div class="s2-addon-icon" style="background:#1a1a1a"></div>
+              <div class="s2-addon-namegrp">
+                <div class="s2-addon-name">Brightsign</div>
+                <div><span class="s2-addon-price">$159</span><span class="s2-addon-unit"> /per month</span></div>
+              </div>
+            </div>
+            <div class="s2-addon-bot">
+              <button class="s2-addon-btn">Select Add-on</button>
+              <button class="s2-pkg-learn">Learn More</button>
+            </div>
+          </div>
+          <!-- AOPEN Chromebox -->
+          <div class="s2-addon-card">
+            <div class="s2-addon-top">
+              <div class="s2-addon-icon" style="background:#1a1a1a"></div>
+              <div class="s2-addon-namegrp">
+                <div class="s2-addon-name">AOPEN Chromebox</div>
+                <div><span class="s2-addon-price">$199</span><span class="s2-addon-unit"> /per month</span></div>
+              </div>
+            </div>
+            <div class="s2-addon-bot">
+              <button class="s2-addon-btn">Select Add-on</button>
+              <button class="s2-pkg-learn">Learn More</button>
+            </div>
+          </div>
+          <!-- HP Chromebox -->
+          <div class="s2-addon-card">
+            <div class="s2-addon-top">
+              <div class="s2-addon-icon" style="background:#1a1a1a"></div>
+              <div class="s2-addon-namegrp">
+                <div class="s2-addon-name">HP Chromebox</div>
+                <div><span class="s2-addon-price">$199</span><span class="s2-addon-unit"> /per month</span></div>
+              </div>
+            </div>
+            <div class="s2-addon-bot">
+              <button class="s2-addon-btn">Select Add-on</button>
+              <button class="s2-pkg-learn">Learn More</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer row -->
+        <div class="s2-footer-row">
+          <button class="btn btn-ghost" onclick="goTo('page-step1-address')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Back
           </button>
-          <button class="btn btn-primary btn-lg" onclick="goTo('page-step3a')">Continue →</button>
+          <button class="btn btn-primary btn-lg" style="margin-left:auto;min-width:138px" onclick="goTo('page-step3a')">
+            Continue
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
         </div>
-      </div>
 
-      <!-- ── ORDER SUMMARY SIDEBAR ─────────────────────────── -->
-      <div class="sp-os">
-        <div class="sp-os-hdr">
-          <div class="sp-os-title">Order Summary</div>
-          <button class="sp-os-show">Show <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        </div>
-        <div class="sp-os-due-lbl">Total Due Today</div>
-        <div class="sp-os-due-amt">$1,193.35</div>
-        <div class="sp-os-fco">
-          <div class="sp-os-fco-ico">i</div>
-          <div>
-            <div class="sp-os-fco-title">Add FCO Information</div>
-            <div class="sp-os-fco-desc">Prices shown are estimates. Final pricing may change significantly once your FCO number is included.</div>
+      </div><!-- /s2-main -->
+
+      <!-- ── ORDER SUMMARY SIDEBAR ── -->
+      <div class="s2-sidebar">
+        <aside>
+          <div class="s2-order-card">
+
+            <!-- Always-visible header: title + View toggle -->
+            <div class="s2-os-hdr">
+              <h3 class="s2-os-title">Order Summary</h3>
+              <button class="s2-os-toggle" id="s2-os-toggle-btn" onclick="toggleS2Summary()">
+                View <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+
+            <!-- Expandable body (collapsed by default) -->
+            <div id="s2-os-body" hidden>
+
+              <!-- ── STATE A: With FCO ── -->
+              <div id="s2-os-fco">
+                <div class="s2-os-sec">
+                  <p class="s2-os-sec-ttl">Streaming Foundation</p>
+                  <div class="s2-os-product">
+                    <div class="s2-os-prod-icon"><img src="https://cdn.upshow.tv/buyflow/CORE.png" alt="EverPass Core" width="40" height="40" style="object-fit:contain"></div>
+                    <div class="s2-os-prod-namegrp">
+                      <span class="s2-os-prod-name">EverPass Core</span>
+                      <div class="s2-os-prod-price"><span>$34.99</span><span class="s2-os-prod-unit"> /month</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="s2-os-sec">
+                  <p class="s2-os-sec-ttl">Charges Today</p>
+                  <div class="s2-os-rows">
+                    <div class="s2-os-row"><p class="s2-os-row-lbl">Subtotal</p><span class="s2-os-row-val">$53.72</span></div>
+                    <div class="s2-os-row"><p class="s2-os-row-lbl">Estimated Tax (21%)</p><span class="s2-os-row-val">$11.28</span></div>
+                  </div>
+                  <div class="s2-os-hr"></div>
+                  <div class="s2-os-sum-row"><span class="s2-os-sum-lbl">Total Due Today</span><span class="s2-os-sum-val">$64.99</span></div>
+                </div>
+                <div class="s2-os-sec">
+                  <p class="s2-os-sec-ttl">Recurring Monthly Charges</p>
+                  <div class="s2-os-rows">
+                    <div class="s2-os-row"><p class="s2-os-row-lbl">EverPass Core</p><span class="s2-os-row-val">$34.99</span></div>
+                  </div>
+                  <div class="s2-os-hr"></div>
+                  <div class="s2-os-sum-row"><span class="s2-os-sum-lbl">Total Recurring Monthly</span><span class="s2-os-sum-val">$34.99</span></div>
+                </div>
+              </div>
+
+              <!-- ── STATE B: Without FCO ── -->
+              <div id="s2-os-nofco" hidden>
+                <div class="s2-os-sec">
+                  <p class="s2-os-sec-ttl">Streaming Foundation</p>
+                  <div class="s2-os-product">
+                    <div class="s2-os-prod-icon"><img src="https://cdn.upshow.tv/buyflow/CORE.png" alt="EverPass Core" width="40" height="40" style="object-fit:contain"></div>
+                    <div class="s2-os-prod-namegrp">
+                      <span class="s2-os-prod-name">EverPass Core</span>
+                      <div class="s2-os-prod-price"><span>$34.99</span><span class="s2-os-prod-unit"> /month</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="s2-os-sec">
+                  <p class="s2-os-sec-ttl">Sports Packages</p>
+                  <div class="s2-os-rows" style="margin-top:12px">
+                    <div class="s2-os-row"><p class="s2-os-row-lbl">ESPN+ for Business</p><span class="s2-os-row-val">$224.99</span></div>
+                    <div class="s2-os-row"><p class="s2-os-row-lbl">Peacock Sports Pass</p><span class="s2-os-row-val">$329.99</span></div>
+                    <div class="s2-os-row"><p class="s2-os-row-lbl">EverPass Engage</p><span class="s2-os-row-val">$109.99</span></div>
+                    <div class="s2-os-row"><p class="s2-os-row-lbl">Chicago Sports Network</p><span class="s2-os-row-val">$74.99</span></div>
+                    <div class="s2-os-row"><p class="s2-os-row-lbl">YES Network</p><span class="s2-os-row-val">$211.29</span></div>
+                  </div>
+                </div>
+                <div class="s2-os-sec">
+                  <p class="s2-os-sec-ttl">Charges Today</p>
+                  <div class="s2-os-rows">
+                    <div class="s2-os-row"><p class="s2-os-row-lbl">Subtotal</p><span class="s2-os-row-val">$986.24</span></div>
+                    <div class="s2-os-row"><p class="s2-os-row-lbl">Estimated Tax (21%)</p><span class="s2-os-row-val">$207.11</span></div>
+                  </div>
+                  <div class="s2-os-hr"></div>
+                  <div class="s2-os-sum-row"><span class="s2-os-sum-lbl">Total Due Today</span><span class="s2-os-sum-val">$1,193.35</span></div>
+                </div>
+                <div class="s2-os-sec">
+                  <p class="s2-os-sec-ttl">Recurring Monthly Charges</p>
+                  <div class="s2-os-rows">
+                    <div class="s2-os-row"><p class="s2-os-row-lbl">EverPass Core</p><span class="s2-os-row-val">$34.99</span></div>
+                    <div class="s2-os-row"><p class="s2-os-row-lbl">ESPN+ for Business</p><span class="s2-os-row-val">$224.99</span></div>
+                    <div class="s2-os-row"><p class="s2-os-row-lbl">Peacock Sports Pass</p><span class="s2-os-row-val">$329.99</span></div>
+                    <div class="s2-os-row"><p class="s2-os-row-lbl">EverPass Engage</p><span class="s2-os-row-val">$109.99</span></div>
+                    <div class="s2-os-row"><p class="s2-os-row-lbl">Chicago Sports Network</p><span class="s2-os-row-val">$74.99</span></div>
+                    <div class="s2-os-row"><p class="s2-os-row-lbl">YES Network</p><span class="s2-os-row-val">$211.29</span></div>
+                  </div>
+                  <div class="s2-os-hr"></div>
+                  <div class="s2-os-sum-row"><span class="s2-os-sum-lbl">Total Recurring Monthly</span><span class="s2-os-sum-val">$986.24</span></div>
+                </div>
+                <!-- Add FCO notice -->
+                <div class="s2-fco-notice">
+                  <div class="s2-fco-notice-ico">i</div>
+                  <div>
+                    <div class="s2-fco-notice-ttl">Add FCO Information</div>
+                    <div class="s2-fco-notice-desc">Enter your Fire Code Occupancy to see accurate pricing for your venue. This is required before review and payment.</div>
+                  </div>
+                </div>
+                <!-- Share Quote disabled -->
+                <button class="s2-share-btn" disabled>
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 2.5L13.5 6 10 9.5M13.5 6H6a3.5 3.5 0 000 7h1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Share Quote
+                </button>
+                <p class="s2-share-note">You can share this quote once your order is complete.</p>
+              </div>
+
+            </div><!-- /s2-os-body -->
+
+            <!-- Always-visible bottom total -->
+            <div class="s2-os-bottom" style="margin-top:16px">
+              <span class="s2-os-bottom-lbl">Total Due Today</span>
+              <span class="s2-os-bottom-price" id="s2-os-total">$64.99</span>
+            </div>
+
           </div>
-        </div>
-        <button class="btn-share-q">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 2.5L13.5 6 10 9.5M13.5 6H6a3.5 3.5 0 000 7h1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Share Quote
-        </button>
-        <div class="sp-os-note">You can share this quote once your order is complete.</div>
-      </div>
-    </div>
-  </div>
+        </aside>
+      </div><!-- /s2-sidebar -->
+
+    </div><!-- /s2-columns -->
+  </div><!-- /s2-outer -->
 </section>
 
 <!-- ════════════════════════════════════════════════════════
@@ -1198,7 +1688,7 @@ a:hover{text-decoration:underline}
         </div>
 
         <div class="page-footer">
-          <button class="btn-back" onclick="goTo('page-step1')">
+          <button class="btn-back" onclick="goTo('page-step1-address')">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Back
           </button>
@@ -1403,7 +1893,7 @@ a:hover{text-decoration:underline}
         </div>
 
         <div class="page-footer">
-          <button class="btn-back" onclick="goTo('page-step1')">
+          <button class="btn-back" onclick="goTo('page-step1-address')">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Back
           </button>
@@ -1610,7 +2100,7 @@ a:hover{text-decoration:underline}
         </div>
 
         <div class="page-footer">
-          <button class="btn-back" onclick="goTo('page-step1')">
+          <button class="btn-back" onclick="goTo('page-step1-address')">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Back
           </button>
@@ -1632,7 +2122,7 @@ a:hover{text-decoration:underline}
 </section>
 
 <!-- ════════════════════════════════════════════════════════
-     STEP 3A — DEVICES & HARDWARE: AV RACK QUESTION
+     STEP 3A — DEVICES & HARDWARE: ENTRY SCREEN
 ════════════════════════════════════════════════════════ -->
 <section class="page" id="page-step3a">
   <div style="background:#fff;padding:20px 0 0">
@@ -1646,504 +2136,25 @@ a:hover{text-decoration:underline}
       <div class="step pending"><div class="step-circle">4</div><div class="step-label">Review &amp; Pay</div></div>
     </div>
   </div>
-  <div class="page-body">
+  <div class="page-body-narrow">
     <h1 class="page-heading">Devices &amp; Hardware</h1>
-    <p class="page-subheading">Answer a few quick questions to see your setup options</p>
-    <div class="layout-sidebar">
-      <div>
-        <div class="info-banner">
-          <div class="info-banner-icon">i</div>
-          <div>
-            <div class="info-banner-title">Start Streaming EverPass</div>
-            <div class="info-banner-desc">To stream EverPass, you'll need a compatible device or one of our streaming devices.</div>
-          </div>
-        </div>
-        <div class="wizard-card">
-          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:8px">
-            <span style="font-size:20px;font-weight:700">Do you use an AV rack in your setup?</span>
-            <a href="#" style="font-size:13px;color:var(--green-80);white-space:nowrap;font-weight:600">What is an AV rack?</a>
-          </div>
-          <div class="av-radio-group">
-            <label class="av-radio-option selected" onclick="selectAvRack(this)">
-              <input type="radio" name="av-rack" checked/>
-              <span class="radio-circle"></span>
-              <span>Yes, — we do</span>
-            </label>
-            <label class="av-radio-option" onclick="selectAvRack(this)">
-              <input type="radio" name="av-rack"/>
-              <span class="radio-circle"></span>
-              <span>No — we don't</span>
-            </label>
-            <label class="av-radio-option" onclick="selectAvRack(this)">
-              <input type="radio" name="av-rack"/>
-              <span class="radio-circle"></span>
-              <span>Yes — plus additional hardware</span>
-            </label>
-          </div>
-        </div>
-        <div class="page-footer">
-          <button class="btn-back" onclick="goTo('page-step2')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Back
-          </button>
-          <div class="footer-right">
-            <button class="btn-skip" onclick="goTo('page-step4')">Skip For Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <button class="btn btn-primary" onclick="continueFromAvRack()">Continue <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          </div>
-        </div>
+    <p class="page-subheading">To stream EverPass, you'll need a compatible device. We'll help you find the best option.</p>
+    <div class="setup-entry-card">
+      <div class="setup-entry-icon">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M13 2L4.09 12.96A1 1 0 005 14.5h6L10 22l9.91-10.96A1 1 0 0019 9.5h-6L13 2z" fill="var(--green-90)"/></svg>
       </div>
-      <!-- Order Summary -->
-      <div class="order-summary">
-        <div class="os-title">Order Summary</div>
-        <div class="os-section-label">Streaming Foundation</div>
-        <div class="os-item">
-          <div class="os-icon green"><svg width="22" height="22" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="2.5" fill="#fff"/><ellipse cx="10" cy="10" rx="8" ry="3.3" stroke="#fff" stroke-width="1.3"/><ellipse cx="10" cy="10" rx="8" ry="3.3" stroke="#fff" stroke-width="1.3" transform="rotate(60 10 10)"/><ellipse cx="10" cy="10" rx="8" ry="3.3" stroke="#fff" stroke-width="1.3" transform="rotate(-60 10 10)"/></svg></div>
-          <div class="os-details"><div class="os-name">EverPass Core</div><div class="os-price"><strong>$64.99</strong>/month</div></div>
-        </div>
-        <div class="os-section-label">Sports Packages</div>
-        <div class="os-item">
-          <div class="os-icon dark" style="font-size:9px;font-weight:800;color:#fff;letter-spacing:.3px;text-align:center;line-height:1.2">NFL<br>TICKET</div>
-          <div class="os-details">
-            <div class="os-name">NFL Sunday Ticket</div>
-            <div class="os-price"><strong>$761,25</strong>/today &nbsp;|&nbsp; Total: $6,090.00</div>
-            <div class="os-badge">8 INSTALLMENTS <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          </div>
-          <button class="os-remove">×</button>
-        </div>
-        <div class="os-item">
-          <div class="os-icon navy"><div style="font-size:9px;font-weight:800;color:#fff;text-align:center;line-height:1.2">ESPN+</div></div>
-          <div class="os-details"><div class="os-name">ESPN+ for Business</div><div class="os-price"><strong>$224.99</strong>/month</div></div>
-          <button class="os-remove">×</button>
-        </div>
-        <div class="os-section-label">EverPass Engage</div>
-        <div class="os-item">
-          <div class="os-icon teal"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="#fff" stroke-width="1.5"/><path d="M3 18c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          <div class="os-details">
-            <div class="os-name">EverPass Engage</div>
-            <div class="os-price"><strong>$69.99</strong>/month</div>
-            <div class="os-badge">MONTHLY <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          </div>
-        </div>
+      <div class="setup-entry-headline">Answer 2 quick questions to get what you need</div>
+      <div class="setup-entry-btns">
+        <button class="btn btn-outline" onclick="goTo('page-step4')">Skip Step</button>
+        <button class="btn btn-teal" onclick="openSetupModal()">Start Setup</button>
       </div>
+      <div class="setup-entry-hint">Not sure? You can skip this and set it up later.</div>
     </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════
-     STEP 3B-NO — DEVICES & HARDWARE: HOW MANY TVs (NO AV RACK PATH)
-════════════════════════════════════════════════════════ -->
-<section class="page" id="page-step3b-no">
-  <div style="background:#fff;padding:20px 0 0">
-    <div class="stepper">
-      <div class="step done"><div class="step-circle">✓</div><div class="step-label">Account &amp; Business</div></div>
-      <div class="step-line done"></div>
-      <div class="step done"><div class="step-circle">✓</div><div class="step-label">Select Packages</div></div>
-      <div class="step-line done"></div>
-      <div class="step active"><div class="step-circle">3</div><div class="step-label">Devices &amp; Hardware</div></div>
-      <div class="step-line pending"></div>
-      <div class="step pending"><div class="step-circle">4</div><div class="step-label">Review &amp; Pay</div></div>
-    </div>
-  </div>
-  <div class="page-body">
-    <h1 class="page-heading">Devices &amp; Hardware</h1>
-    <div class="layout-sidebar" style="margin-top:16px">
-      <div>
-        <div class="wizard-card">
-          <div class="wizard-dots" style="margin-bottom:20px">
-            <div class="wizard-dot active"></div>
-            <div class="wizard-dot inactive"></div>
-            <div class="wizard-dot inactive"></div>
-          </div>
-          <div class="wizard-question">How many TVs will show EverPass live content?</div>
-          <div style="margin-bottom:8px;font-size:13px;font-weight:600;color:var(--gray-80)">Number of TVs</div>
-          <div class="number-input-wrap">
-            <div class="number-input-field">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="11" rx="1.5" stroke="#888" stroke-width="1.3"/><rect x="6" y="13" width="4" height="2" rx=".5" fill="#888"/><line x1="3" y1="15" x2="13" y2="15" stroke="#888" stroke-width="1.3" stroke-linecap="round"/></svg>
-              <input type="number" id="tvCount" value="0" min="0" max="99" style="width:40px"/>
-            </div>
-            <button class="num-btn" onclick="changeTV(-1)">−</button>
-            <button class="num-btn" onclick="changeTV(1)">+</button>
-          </div>
-        </div>
-        <div class="page-footer">
-          <button class="btn-back" onclick="goTo('page-step3a')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Back
-          </button>
-          <div class="footer-right">
-            <button class="btn-skip" onclick="goTo('page-step4')">Skip For Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <button class="btn btn-primary" onclick="goTo('page-step3c-no')">Continue <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          </div>
-        </div>
-      </div>
-      <!-- Order Summary -->
-      <div class="order-summary">
-        <div class="os-title">Order Summary</div>
-        <div class="os-section-label">Streaming Foundation</div>
-        <div class="os-item">
-          <div class="os-icon green"><svg width="22" height="22" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="2.5" fill="#fff"/><ellipse cx="10" cy="10" rx="8" ry="3.3" stroke="#fff" stroke-width="1.3"/><ellipse cx="10" cy="10" rx="8" ry="3.3" stroke="#fff" stroke-width="1.3" transform="rotate(60 10 10)"/><ellipse cx="10" cy="10" rx="8" ry="3.3" stroke="#fff" stroke-width="1.3" transform="rotate(-60 10 10)"/></svg></div>
-          <div class="os-details"><div class="os-name">EverPass Core</div><div class="os-price"><strong>$64.99</strong>/month</div></div>
-        </div>
-        <div class="os-section-label">Sports Packages</div>
-        <div class="os-item">
-          <div class="os-icon dark" style="font-size:9px;font-weight:800;color:#fff;letter-spacing:.3px;text-align:center;line-height:1.2">NFL<br>TICKET</div>
-          <div class="os-details">
-            <div class="os-name">NFL Sunday Ticket</div>
-            <div class="os-price"><strong>$761,25</strong>/today &nbsp;|&nbsp; Total: $6,090.00</div>
-            <div class="os-badge">8 INSTALLMENTS <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          </div>
-          <button class="os-remove">×</button>
-        </div>
-        <div class="os-item">
-          <div class="os-icon navy"><div style="font-size:9px;font-weight:800;color:#fff;text-align:center;line-height:1.2">ESPN+</div></div>
-          <div class="os-details"><div class="os-name">ESPN+ for Business</div><div class="os-price"><strong>$224.99</strong>/month</div></div>
-          <button class="os-remove">×</button>
-        </div>
-        <div class="os-section-label">EverPass Engage</div>
-        <div class="os-item">
-          <div class="os-icon teal"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="#fff" stroke-width="1.5"/><path d="M3 18c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          <div class="os-details">
-            <div class="os-name">EverPass Engage</div>
-            <div class="os-price"><strong>$69.99</strong>/month</div>
-            <div class="os-badge">MONTHLY <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════
-     STEP 3C-NO — DEVICES & HARDWARE: COMPATIBLE DEVICES (NO AV RACK PATH)
-════════════════════════════════════════════════════════ -->
-<section class="page" id="page-step3c-no">
-  <div style="background:#fff;padding:20px 0 0">
-    <div class="stepper">
-      <div class="step done"><div class="step-circle">✓</div><div class="step-label">Account &amp; Business</div></div>
-      <div class="step-line done"></div>
-      <div class="step done"><div class="step-circle">✓</div><div class="step-label">Select Packages</div></div>
-      <div class="step-line done"></div>
-      <div class="step active"><div class="step-circle">3</div><div class="step-label">Devices &amp; Hardware</div></div>
-      <div class="step-line pending"></div>
-      <div class="step pending"><div class="step-circle">4</div><div class="step-label">Review &amp; Pay</div></div>
-    </div>
-  </div>
-  <div class="page-body">
-    <h1 class="page-heading">Devices &amp; Hardware</h1>
-    <div class="layout-sidebar" style="margin-top:16px">
-      <div>
-        <div class="wizard-card">
-          <div class="wizard-dots" style="margin-bottom:20px">
-            <div class="wizard-dot inactive"></div>
-            <div class="wizard-dot active"></div>
-            <div class="wizard-dot inactive"></div>
-          </div>
-          <div class="wizard-question">Do you have any compatible devices?</div>
-
-          <!-- Device selection cards -->
-          <div class="device-cards-grid">
-            <!-- Android TV -->
-            <button class="device-card" onclick="toggleDeviceCard(this)" aria-pressed="false">
-              <div class="device-card-logo" style="background:#3ddc84">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                  <circle cx="16" cy="20" r="9" fill="none" stroke="#fff" stroke-width="1.8"/>
-                  <line x1="11" y1="11" x2="8" y2="7" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
-                  <line x1="21" y1="11" x2="24" y2="7" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
-                  <circle cx="12" cy="19" r="1.2" fill="#fff"/>
-                  <circle cx="20" cy="19" r="1.2" fill="#fff"/>
-                  <line x1="10" y1="23" x2="10" y2="27" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
-                  <line x1="22" y1="23" x2="22" y2="27" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div class="device-card-name">Android TV</div>
-            </button>
-            <!-- Fire TV -->
-            <button class="device-card" onclick="toggleDeviceCard(this)" aria-pressed="false">
-              <div class="device-card-logo" style="background:#ff9900">
-                <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
-                  <path d="M16 4 C16 4 10 10 10 18 C10 22 13 26 16 26 C19 26 22 22 22 18 C22 10 16 4 16 4Z" fill="#fff" opacity=".9"/>
-                  <path d="M16 13 C16 13 13 16 13 20 C13 22 14.5 24 16 24 C17.5 24 19 22 19 20 C19 16 16 13 16 13Z" fill="#ff9900"/>
-                </svg>
-              </div>
-              <div class="device-card-name">Fire TV</div>
-            </button>
-            <!-- Samsung TV -->
-            <button class="device-card" onclick="toggleDeviceCard(this)" aria-pressed="false">
-              <div class="device-card-logo" style="background:#1428a0">
-                <span style="font-size:11px;font-weight:900;color:#fff;letter-spacing:-.3px">SAM<br>SUNG</span>
-              </div>
-              <div class="device-card-name">Samsung TV</div>
-            </button>
-            <!-- LG TV -->
-            <button class="device-card" onclick="toggleDeviceCard(this)" aria-pressed="false">
-              <div class="device-card-logo" style="background:#a50034">
-                <span style="font-size:16px;font-weight:900;color:#fff;letter-spacing:-.5px">LG</span>
-              </div>
-              <div class="device-card-name">LG TV</div>
-            </button>
-          </div>
-
-          <!-- Two counters side by side -->
-          <div class="counter-pair">
-            <div>
-              <div class="counter-label">Supported TVs</div>
-              <div class="number-input-wrap">
-                <div class="number-input-field">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="11" rx="1.5" stroke="#888" stroke-width="1.3"/><rect x="6" y="13" width="4" height="2" rx=".5" fill="#888"/><line x1="3" y1="15" x2="13" y2="15" stroke="#888" stroke-width="1.3" stroke-linecap="round"/></svg>
-                  <input type="number" id="supportedTVsCount" value="0" min="0" max="99" style="width:36px"/>
-                </div>
-                <button class="num-btn" onclick="changeSupportedTV(-1)">−</button>
-                <button class="num-btn" onclick="changeSupportedTV(1)">+</button>
-              </div>
-            </div>
-            <div>
-              <div class="counter-label">Streaming Devices</div>
-              <div class="number-input-wrap">
-                <div class="number-input-field">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="8" rx="1.5" stroke="#888" stroke-width="1.3"/><line x1="8" y1="12" x2="8" y2="15" stroke="#888" stroke-width="1.3" stroke-linecap="round"/><line x1="5" y1="15" x2="11" y2="15" stroke="#888" stroke-width="1.3" stroke-linecap="round"/><circle cx="8" cy="8" r="1.5" fill="#888"/></svg>
-                  <input type="number" id="streamingDevicesCount" value="0" min="0" max="99" style="width:36px"/>
-                </div>
-                <button class="num-btn" onclick="changeStreamingDevices(-1)">−</button>
-                <button class="num-btn" onclick="changeStreamingDevices(1)">+</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Teal links -->
-          <div class="compat-links">
-            <button class="compat-link">See All Compatible Devices <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H5M9.5 2.5V7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <button class="compat-link">Compare Hardware Experiences</button>
-          </div>
-        </div>
-
-        <div class="page-footer">
-          <button class="btn-back" onclick="goTo('page-step3b-no')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Back
-          </button>
-          <div class="footer-right">
-            <button class="btn-skip" onclick="goTo('page-step4')">Skip For Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <button class="btn btn-primary" onclick="goTo('page-step4')">Continue <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          </div>
-        </div>
-      </div>
-      <!-- Order Summary -->
-      <div class="order-summary">
-        <div class="os-title">Order Summary</div>
-        <div class="os-section-label">Streaming Foundation</div>
-        <div class="os-item">
-          <div class="os-icon green"><svg width="22" height="22" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="2.5" fill="#fff"/><ellipse cx="10" cy="10" rx="8" ry="3.3" stroke="#fff" stroke-width="1.3"/><ellipse cx="10" cy="10" rx="8" ry="3.3" stroke="#fff" stroke-width="1.3" transform="rotate(60 10 10)"/><ellipse cx="10" cy="10" rx="8" ry="3.3" stroke="#fff" stroke-width="1.3" transform="rotate(-60 10 10)"/></svg></div>
-          <div class="os-details"><div class="os-name">EverPass Core</div><div class="os-price"><strong>$64.99</strong>/month</div></div>
-        </div>
-        <div class="os-section-label">Sports Packages</div>
-        <div class="os-item">
-          <div class="os-icon dark" style="font-size:9px;font-weight:800;color:#fff;letter-spacing:.3px;text-align:center;line-height:1.2">NFL<br>TICKET</div>
-          <div class="os-details">
-            <div class="os-name">NFL Sunday Ticket</div>
-            <div class="os-price"><strong>$761,25</strong>/today &nbsp;|&nbsp; Total: $6,090.00</div>
-            <div class="os-badge">8 INSTALLMENTS <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          </div>
-          <button class="os-remove">×</button>
-        </div>
-        <div class="os-item">
-          <div class="os-icon navy"><div style="font-size:9px;font-weight:800;color:#fff;text-align:center;line-height:1.2">ESPN+</div></div>
-          <div class="os-details"><div class="os-name">ESPN+ for Business</div><div class="os-price"><strong>$224.99</strong>/month</div></div>
-          <button class="os-remove">×</button>
-        </div>
-        <div class="os-section-label">EverPass Engage</div>
-        <div class="os-item">
-          <div class="os-icon teal"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="#fff" stroke-width="1.5"/><path d="M3 18c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          <div class="os-details">
-            <div class="os-name">EverPass Engage</div>
-            <div class="os-price"><strong>$69.99</strong>/month</div>
-            <div class="os-badge">MONTHLY <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════
-     STEP 3B — DEVICES & HARDWARE: HOW MANY GAMES
-════════════════════════════════════════════════════════ -->
-<section class="page" id="page-step3b">
-  <div style="background:#fff;padding:20px 0 0">
-    <div class="stepper">
-      <div class="step done"><div class="step-circle">✓</div><div class="step-label">Account &amp; Business</div></div>
-      <div class="step-line done"></div>
-      <div class="step done"><div class="step-circle">✓</div><div class="step-label">Select Packages</div></div>
-      <div class="step-line done"></div>
-      <div class="step active"><div class="step-circle">3</div><div class="step-label">Devices &amp; Hardware</div></div>
-      <div class="step-line pending"></div>
-      <div class="step pending"><div class="step-circle">4</div><div class="step-label">Review &amp; Pay</div></div>
-    </div>
-  </div>
-  <div class="page-body">
-    <h1 class="page-heading">Devices &amp; Hardware</h1>
-    <div class="layout-sidebar" style="margin-top:16px">
-      <div>
-        <div class="wizard-card">
-          <div class="wizard-question">How many games do you want to show at the same time?</div>
-          <div class="game-pills-grid">
-            <button class="game-pill" onclick="selectGamePill(this)">1 Game</button>
-            <button class="game-pill" onclick="selectGamePill(this)">2 Games</button>
-            <button class="game-pill" onclick="selectGamePill(this)">3 Games</button>
-            <button class="game-pill selected" onclick="selectGamePill(this)">4 Games</button>
-            <button class="game-pill" onclick="selectGamePill(this)">5 Games</button>
-            <button class="game-pill" onclick="selectGamePill(this)">6 Games</button>
-            <button class="game-pill" onclick="selectGamePill(this)">7 Games</button>
-            <button class="game-pill" onclick="selectGamePill(this)">8 Or More Games</button>
-          </div>
-          <div class="nfl-insight">
-            <span class="nfl-insight-icon">💡</span>
-            <div>
-              <div class="nfl-insight-title">NFL Sunday Ticket</div>
-              <div class="nfl-insight-desc">Businesses streaming NFL Sunday Ticket on average show 4+ games.</div>
-            </div>
-          </div>
-        </div>
-        <div class="page-footer">
-          <button class="btn-back" onclick="goTo('page-step3a')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Back
-          </button>
-          <div class="footer-right">
-            <button class="btn-skip" onclick="goTo('page-step4')">Skip For Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <button class="btn btn-primary" onclick="goTo('page-step3c')">Continue <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          </div>
-        </div>
-      </div>
-      <!-- Order Summary -->
-      <div class="order-summary">
-        <div class="os-title">Order Summary</div>
-        <div class="os-section-label">Streaming Foundation</div>
-        <div class="os-item">
-          <div class="os-icon green"><svg width="22" height="22" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="2.5" fill="#fff"/><ellipse cx="10" cy="10" rx="8" ry="3.3" stroke="#fff" stroke-width="1.3"/><ellipse cx="10" cy="10" rx="8" ry="3.3" stroke="#fff" stroke-width="1.3" transform="rotate(60 10 10)"/><ellipse cx="10" cy="10" rx="8" ry="3.3" stroke="#fff" stroke-width="1.3" transform="rotate(-60 10 10)"/></svg></div>
-          <div class="os-details"><div class="os-name">EverPass Core</div><div class="os-price"><strong>$64.99</strong>/month</div></div>
-        </div>
-        <div class="os-section-label">Sports Packages</div>
-        <div class="os-item">
-          <div class="os-icon dark" style="font-size:9px;font-weight:800;color:#fff;letter-spacing:.3px;text-align:center;line-height:1.2">NFL<br>TICKET</div>
-          <div class="os-details">
-            <div class="os-name">NFL Sunday Ticket</div>
-            <div class="os-price"><strong>$761,25</strong>/today &nbsp;|&nbsp; Total: $6,090.00</div>
-            <div class="os-badge">8 INSTALLMENTS <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          </div>
-          <button class="os-remove">×</button>
-        </div>
-        <div class="os-item">
-          <div class="os-icon navy"><div style="font-size:9px;font-weight:800;color:#fff;text-align:center;line-height:1.2">ESPN+</div></div>
-          <div class="os-details"><div class="os-name">ESPN+ for Business</div><div class="os-price"><strong>$224.99</strong>/month</div></div>
-          <button class="os-remove">×</button>
-        </div>
-        <div class="os-section-label">EverPass Engage</div>
-        <div class="os-item">
-          <div class="os-icon teal"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="#fff" stroke-width="1.5"/><path d="M3 18c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          <div class="os-details">
-            <div class="os-name">EverPass Engage</div>
-            <div class="os-price"><strong>$69.99</strong>/month</div>
-            <div class="os-badge">MONTHLY <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════
-     STEP 3C — DEVICES & HARDWARE: RECOMMENDED SETUP
-════════════════════════════════════════════════════════ -->
-<section class="page" id="page-step3c">
-  <div style="background:#fff;padding:20px 0 0">
-    <div class="stepper">
-      <div class="step done"><div class="step-circle">✓</div><div class="step-label">Account &amp; Business</div></div>
-      <div class="step-line done"></div>
-      <div class="step done"><div class="step-circle">✓</div><div class="step-label">Select Packages</div></div>
-      <div class="step-line done"></div>
-      <div class="step active"><div class="step-circle">3</div><div class="step-label">Devices &amp; Hardware</div></div>
-      <div class="step-line pending"></div>
-      <div class="step pending"><div class="step-circle">4</div><div class="step-label">Review &amp; Pay</div></div>
-    </div>
-  </div>
-  <div class="page-body">
-    <h1 class="page-heading">Devices &amp; Hardware</h1>
-    <div class="layout-sidebar" style="margin-top:16px">
-      <div>
-        <div class="wizard-card">
-          <div class="card-title">Recommended Setup</div>
-          <p class="card-subtitle">Based on your setup, we recommend 4 devices.</p>
-          <div class="rec-inner">
-            <div class="rec-row">
-              <span>Recommended</span>
-              <span style="font-weight:700">4</span>
-            </div>
-            <div class="rec-row">
-              <span>Included with promo <span class="promo-badge">FREE DEVICES WITH NFL ST</span></span>
-              <div class="rec-stepper">
-                <button class="rec-btn" disabled>−</button>
-                <div class="rec-num">2</div>
-                <button class="rec-btn" disabled>+</button>
-              </div>
-            </div>
-            <div class="rec-row">
-              <span>Devices to add</span>
-              <div class="rec-stepper">
-                <button class="rec-btn" onclick="changeRecDevices(-1)">−</button>
-                <div class="rec-num" id="recDevices">2</div>
-                <button class="rec-btn" onclick="changeRecDevices(1)">+</button>
-              </div>
-            </div>
-            <div class="rec-total-row">
-              <span>Total Due for Devices <span style="font-weight:400;color:var(--gray-80)">/x2 Devices</span></span>
-              <span>$318.00</span>
-            </div>
-          </div>
-        </div>
-        <div class="page-footer">
-          <button class="btn-back" onclick="goTo('page-step3b')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Back
-          </button>
-          <div class="footer-right">
-            <button class="btn-skip" onclick="goTo('page-step4')">Skip For Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <button class="btn btn-primary" onclick="goTo('page-step4')">Add and Continue <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          </div>
-        </div>
-      </div>
-      <!-- Order Summary -->
-      <div class="order-summary">
-        <div class="os-title">Order Summary</div>
-        <div class="os-section-label">Streaming Foundation</div>
-        <div class="os-item">
-          <div class="os-icon green"><svg width="22" height="22" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="2.5" fill="#fff"/><ellipse cx="10" cy="10" rx="8" ry="3.3" stroke="#fff" stroke-width="1.3"/><ellipse cx="10" cy="10" rx="8" ry="3.3" stroke="#fff" stroke-width="1.3" transform="rotate(60 10 10)"/><ellipse cx="10" cy="10" rx="8" ry="3.3" stroke="#fff" stroke-width="1.3" transform="rotate(-60 10 10)"/></svg></div>
-          <div class="os-details"><div class="os-name">EverPass Core</div><div class="os-price"><strong>$64.99</strong>/month</div></div>
-        </div>
-        <div class="os-section-label">Sports Packages</div>
-        <div class="os-item">
-          <div class="os-icon dark" style="font-size:9px;font-weight:800;color:#fff;letter-spacing:.3px;text-align:center;line-height:1.2">NFL<br>TICKET</div>
-          <div class="os-details">
-            <div class="os-name">NFL Sunday Ticket</div>
-            <div class="os-price"><strong>$761,25</strong>/today &nbsp;|&nbsp; Total: $6,090.00</div>
-            <div class="os-badge">8 INSTALLMENTS <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          </div>
-          <button class="os-remove">×</button>
-        </div>
-        <div class="os-item">
-          <div class="os-icon navy"><div style="font-size:9px;font-weight:800;color:#fff;text-align:center;line-height:1.2">ESPN+</div></div>
-          <div class="os-details"><div class="os-name">ESPN+ for Business</div><div class="os-price"><strong>$224.99</strong>/month</div></div>
-          <button class="os-remove">×</button>
-        </div>
-        <div class="os-section-label">EverPass Engage</div>
-        <div class="os-item">
-          <div class="os-icon teal"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="4" stroke="#fff" stroke-width="1.5"/><path d="M3 18c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          <div class="os-details">
-            <div class="os-name">EverPass Engage</div>
-            <div class="os-price"><strong>$69.99</strong>/month</div>
-            <div class="os-badge">MONTHLY <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          </div>
-        </div>
-      </div>
+    <div style="margin-top:28px">
+      <button class="btn-back" onclick="goTo('page-step2')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back
+      </button>
     </div>
   </div>
 </section>
@@ -2235,7 +2246,7 @@ a:hover{text-decoration:underline}
             </div>
           </div>
         </div>
-        <button class="btn-back" onclick="goTo('page-step3c')" style="margin-top:8px">
+        <button class="btn-back" onclick="goTo('page-step3a')" style="margin-top:8px">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           Back
         </button>
@@ -2378,7 +2389,7 @@ a:hover{text-decoration:underline}
 <section class="page solutions-page" id="page-enterprise">
   <div class="solutions-body">
     <div class="solutions-left">
-      <button class="back-link" onclick="goTo('page-step1')">
+      <button class="back-link" onclick="goTo('page-step1-address')">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Back to Account &amp; Business
       </button>
@@ -2456,7 +2467,7 @@ a:hover{text-decoration:underline}
 <section class="page solutions-page" id="page-casino">
   <div class="solutions-body">
     <div class="solutions-left">
-      <button class="back-link" onclick="goTo('page-step1')">
+      <button class="back-link" onclick="goTo('page-step1-address')">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Back to Account &amp; Business
       </button>
@@ -2589,12 +2600,112 @@ a:hover{text-decoration:underline}
 </div>
 
 
+<!-- ════════════════════════════════════════════════════════
+     SETUP WIZARD MODAL
+════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-setup-wizard">
+  <div class="setup-modal">
+    <div class="wiz-prog-bar"><div class="wiz-prog-fill" id="wiz-prog-fill" style="width:33.33%"></div></div>
+    <div id="wiz-content"></div>
+  </div>
+</div>
+
 <script>
 // ── Navigation ────────────────────────────────────────────
 function goTo(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   const el=document.getElementById(id);
   if(el){el.classList.add('active');window.scrollTo(0,0)}
+}
+
+// ── Step 2 Package Cards ──────────────────────────────────
+const _PKG_IDS=['espn','nfl','peacock'];
+const _CHK_SVG='<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const _CHEV_SVG='<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+function togglePkgDd(id){
+  const dd=document.getElementById('pkg-'+id+'-dd');
+  const open=dd.hidden;
+  // close all
+  _PKG_IDS.forEach(p=>{ const d=document.getElementById('pkg-'+p+'-dd'); if(d) d.hidden=true; });
+  // toggle this one
+  dd.hidden=!open;
+}
+
+function selectPkgOption(id,price,term){
+  const card=document.getElementById('pkg-'+id);
+  const btn=document.getElementById('pkg-'+id+'-btn');
+  const dd=document.getElementById('pkg-'+id+'-dd');
+  card.classList.add('sel');
+  btn.classList.add('sel');
+  btn.innerHTML=_CHK_SVG+' Selected';
+  dd.hidden=true;
+}
+
+function unselectPkg(id){
+  const card=document.getElementById('pkg-'+id);
+  const btn=document.getElementById('pkg-'+id+'-btn');
+  const dd=document.getElementById('pkg-'+id+'-dd');
+  card.classList.remove('sel');
+  btn.classList.remove('sel');
+  btn.innerHTML='Select Package '+_CHEV_SVG;
+  dd.hidden=true;
+}
+
+// Close dropdowns on outside click
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.s2-pkg-btn-wrap')){
+    _PKG_IDS.forEach(p=>{ const d=document.getElementById('pkg-'+p+'-dd'); if(d) d.hidden=true; });
+  }
+});
+
+// ── Step 2 Order Summary ──────────────────────────────────
+let hasFco=false;
+
+function continueToStep2(){
+  hasFco=!!(document.getElementById('s1a-fco-input')?.value?.trim());
+  _applyStep2Summary();
+  goTo('page-step2');
+}
+
+function _applyStep2Summary(){
+  // Set the bottom total
+  document.getElementById('s2-os-total').textContent=hasFco?'$64.99':'$1,193.35';
+  // Show the correct state panel (both start hidden; body itself is collapsed)
+  document.getElementById('s2-os-fco').hidden=!hasFco;
+  document.getElementById('s2-os-nofco').hidden=hasFco;
+  // Collapse the body on entry
+  document.getElementById('s2-os-body').hidden=true;
+  _setS2ToggleLabel(false);
+}
+
+function toggleS2Summary(){
+  const body=document.getElementById('s2-os-body');
+  const open=body.hidden;
+  body.hidden=!open;
+  _setS2ToggleLabel(open);
+}
+
+function _setS2ToggleLabel(open){
+  const btn=document.getElementById('s2-os-toggle-btn');
+  const CHEV_DOWN='<svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const CHEV_UP='<svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M4 10l4-4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  btn.innerHTML=open?'Hide '+CHEV_UP:'View '+CHEV_DOWN;
+}
+
+// ── Step 1 → skeleton → pre-filled + address form ────────
+function saveAndContinue(){
+  // Show skeleton, hide pre-filled — address form is always visible
+  const skel=document.getElementById('s1a-skeleton');
+  const pre=document.getElementById('s1a-prefilled');
+  skel.hidden=false;
+  pre.hidden=true;
+  goTo('page-step1-address');
+  // After 1.5s swap skeleton → pre-filled contact info card
+  setTimeout(()=>{
+    skel.hidden=true;
+    pre.hidden=false;
+  },1500);
 }
 
 // ── Modals ────────────────────────────────────────────────
@@ -2622,50 +2733,265 @@ function changeTV(delta){
   inp.value=v;
 }
 
-// ── AV Rack radio select ──────────────────────────────────
-function selectAvRack(el){
-  document.querySelectorAll('.av-radio-option').forEach(o=>o.classList.remove('selected'));
-  el.classList.add('selected');
-  el.querySelector('input[type=radio]').checked=true;
+// ── Setup Wizard FSM ─────────────────────────────────────
+// setupStep is the single source of truth — only ONE step is ever rendered
+let setupStep = 'av-rack'; // 'av-rack' | 'games' | 'tvs' | 'recommendation'
+let wizAvRackAnswer = 'yes';
+let wizPath = 'games'; // 'games' | 'tvs' — set when Q1 is answered
+let wizGamesCount = 4;
+let wizTVsCount = 1;
+let wizFreeCount = 4;
+let wizOrderCount = 2;
+
+const _SKIP_SVG = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const _BACK_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+function _fmt(n){ return (n*318).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+
+function renderWizStep(){
+  const progMap = {'av-rack':33.33,'games':66.66,'tvs':66.66,'recommendation':100};
+  document.getElementById('wiz-prog-fill').style.width = (progMap[setupStep]||33.33) + '%';
+  const html = {
+    'av-rack': _renderAvRack,
+    'games':   _renderGames,
+    'tvs':     _renderTVs,
+    'recommendation': _renderRec
+  }[setupStep];
+  document.getElementById('wiz-content').innerHTML = html ? html() : '';
 }
 
-// ── Continue from AV Rack (routes based on selection) ────
-function continueFromAvRack(){
-  const selected=document.querySelector('#page-step3a .av-radio-option.selected span:last-child');
-  const text=selected?selected.textContent.trim():'';
-  // "No — we don't" goes to the TV count screen; all other options go to the games screen
-  if(/No/i.test(text)){
-    goTo('page-step3b-no');
-  } else {
-    goTo('page-step3b');
-  }
+function _renderAvRack(){
+  const opts = [
+    {val:'yes',       label:'Yes — we do'},
+    {val:'no',        label:'No — we don’t'},
+    {val:'yes-extra', label:'Yes — plus additional hardware'}
+  ];
+  const rows = opts.map(o=>`
+    <div class="wiz-radio-row${wizAvRackAnswer===o.val?' selected':''}" onclick="wizSetAvRack('${o.val}')">
+      <div class="wiz-radio-dot"></div><span>${o.label}</span>
+    </div>`).join('');
+  return `
+    <div class="wiz-header"><span class="wiz-title">Setup Questions</span><span class="wiz-count">1/3</span></div>
+    <div class="wiz-body">
+      <div class="wiz-q-col">
+        <div class="wiz-q-text">Does your business use an AV rack?</div>
+        <button class="wiz-q-helper">What is an AV rack?</button>
+      </div>
+      <div class="wiz-opt-col">${rows}</div>
+    </div>
+    <div class="wiz-footer">
+      <button class="wiz-skip-btn" onclick="wizSkip()">Skip Step ${_SKIP_SVG}${_SKIP_SVG}</button>
+      <button class="btn btn-primary" onclick="wizQ1Continue()">Continue</button>
+    </div>`;
 }
 
-// ── Game pill select ──────────────────────────────────────
-function selectGamePill(el){
-  el.closest('.game-pills-grid').querySelectorAll('.game-pill').forEach(p=>p.classList.remove('selected'));
-  el.classList.add('selected');
+function _renderGames(){
+  const counts = [1,2,3,4,5,6,7,8];
+  const pills = counts.map(n=>`<button class="wiz-pill${wizGamesCount===n?' selected':''}" onclick="wizSetGames(${n})">${n===8?'8 Or More Games':n+' Game'+(n>1?'s':'')}</button>`).join('');
+  return `
+    <div class="wiz-header"><span class="wiz-title">Setup Questions</span><span class="wiz-count">2/3</span></div>
+    <div class="wiz-body">
+      <div class="wiz-q-col"><div class="wiz-q-text">How many games do you want to show at the same time?</div></div>
+      <div class="wiz-opt-col">
+        <div class="wiz-pills-wrap">${pills}</div>
+        <div class="wiz-nfl-hint">
+          <div style="font-size:16px;flex-shrink:0;margin-top:1px">&#x1F3C8;</div>
+          <div><div class="wiz-nfl-title">NFL Sunday Ticket</div><div class="wiz-nfl-text">Businesses streaming NFL Sunday Ticket on average show 4+ games.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="wiz-footer">
+      <button class="wiz-skip-btn" onclick="wizSkip()">Skip Step ${_SKIP_SVG}${_SKIP_SVG}</button>
+      <button class="btn btn-primary" onclick="wizGoRec()">See Recommendation</button>
+    </div>`;
 }
 
-// ── Recommended devices counter ───────────────────────────
-function changeRecDevices(delta){
-  const el=document.getElementById('recDevices');
-  const v=Math.max(0,parseInt(el.textContent||0)+delta);
-  el.textContent=v;
-  const price=(v*159).toFixed(2);
-  const total=el.closest('.rec-inner').querySelector('.rec-total-row');
-  if(total){
-    const span=total.querySelector('span:last-child');
-    if(span)span.textContent='$'+price;
-    const sub=total.querySelector('span span');
-    if(sub)sub.textContent='/x'+v+' Devices';
-  }
+function _renderTVs(){
+  const counts = [1,2,3,4,5,6,7,8];
+  const pills = counts.map(n=>`<button class="wiz-pill${wizTVsCount===n?' selected':''}" onclick="wizSetTVs(${n})">${n} TV${n>1?'s':''}</button>`).join('');
+  return `
+    <div class="wiz-header"><span class="wiz-title">Setup Questions</span><span class="wiz-count">2/3</span></div>
+    <div class="wiz-body">
+      <div class="wiz-q-col"><div class="wiz-q-text">How many TVs will show EverPass live content?</div></div>
+      <div class="wiz-opt-col">
+        <div class="wiz-pills-wrap">${pills}</div>
+        <div class="wiz-tv-counter">
+          <div class="wiz-tv-counter-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <input id="wiz-tv-val" class="wiz-tv-count-val" value="${wizTVsCount}" readonly/>
+          <button class="wiz-tv-btn" onclick="wizChangeTVs(-1)">&#x2212;</button>
+          <button class="wiz-tv-btn" onclick="wizChangeTVs(1)">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="wiz-footer">
+      <button class="wiz-skip-btn" onclick="wizSkip()">Skip Step ${_SKIP_SVG}${_SKIP_SVG}</button>
+      <button class="btn btn-primary" onclick="wizGoRec()">Get your Setup</button>
+    </div>`;
 }
+
+function _renderRec(){
+  if(wizPath==='tvs') return _renderRecTVs();
+  return _renderRecGames();
+}
+
+function _renderRecGames(){
+  const recommended = Math.max(3, wizGamesCount + 2);
+  wizFreeCount = Math.min(4, recommended);
+  wizOrderCount = Math.max(0, recommended - wizFreeCount);
+  const total = _fmt(wizOrderCount);
+  return `
+    <div class="wiz-header"><span class="wiz-title">Recommended Setup</span><span class="wiz-count">3/3</span></div>
+    <div class="wiz-rec-body">
+      <div class="wiz-rec-headline">Your Setup Recommendation</div>
+      <div class="wiz-rec-sub">Based on your answers, we recommend <strong>${recommended} device${recommended===1?'':'s'}</strong>.</div>
+      <div class="wiz-free-block">
+        <div class="wiz-free-left">
+          <div class="wiz-free-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="var(--green-90)"/></svg></div>
+          <div>
+            <div class="wiz-free-label">Free Included Devices</div>
+            <div class="wiz-free-sub">Included at no extra cost with NFL Sunday Ticket</div>
+          </div>
+        </div>
+        <div class="wiz-rec-counter">
+          <button class="wiz-rec-counter-btn" onclick="wizChangeFree(-1)">&#x2212;</button>
+          <span class="wiz-rec-counter-num" id="wiz-free-count">${wizFreeCount}</span>
+          <button class="wiz-rec-counter-btn" onclick="wizChangeFree(1)">+</button>
+        </div>
+      </div>
+      <div class="wiz-price-table">
+        <div class="wiz-price-row"><span class="wiz-price-label">Recommended Devices</span><span id="wiz-price-recommended">${recommended}</span></div>
+        <div class="wiz-price-row"><span class="wiz-price-label">Free Included Devices</span><span id="wiz-price-free" style="color:var(--green-90);font-weight:700">-${wizFreeCount}</span></div>
+        <div class="wiz-price-row">
+          <span class="wiz-price-label">Add to Order</span>
+          <div class="wiz-rec-counter">
+            <button class="wiz-rec-counter-btn" onclick="wizChangeOrder(-1)">&#x2212;</button>
+            <span class="wiz-rec-counter-num" id="wiz-order-count">${wizOrderCount}</span>
+            <button class="wiz-rec-counter-btn" onclick="wizChangeOrder(1)">+</button>
+          </div>
+        </div>
+        <div class="wiz-price-divider"></div>
+        <div class="wiz-price-total-row">
+          <span>Total Due for Devices <span class="wiz-price-sub" id="wiz-total-label">/x${wizOrderCount} Device${wizOrderCount===1?'':'s'}</span></span>
+          <span id="wiz-total-price">$${total}</span>
+        </div>
+      </div>
+      <div class="wiz-rec-info">
+        <div style="flex-shrink:0;color:var(--gray-80);font-size:15px;margin-top:1px">&#x24D8;</div>
+        <div>
+          <div class="wiz-rec-info-title">You may already have compatible devices</div>
+          <div class="wiz-rec-info-text">EverPass works with many popular devices — check if yours is compatible.</div>
+          <button class="wiz-rec-info-link">See All Compatible Devices &#x2197;</button>
+        </div>
+      </div>
+    </div>
+    <div class="wiz-footer">
+      <button class="wiz-skip-btn" onclick="wizBack()">${_BACK_SVG} Back</button>
+      <div class="wiz-footer-right">
+        <button class="wiz-skip-btn" onclick="wizSkip()">Skip Step ${_SKIP_SVG}${_SKIP_SVG}</button>
+        <button class="btn btn-primary" onclick="wizComplete()">Add &amp; Continue</button>
+      </div>
+    </div>`;
+}
+
+function _renderRecTVs(){
+  return `
+    <div class="wiz-header"><span class="wiz-title">Recommended Setup</span><span class="wiz-count">3/3</span></div>
+    <div class="wiz-rec-body">
+      <div class="wiz-success-banner">
+        <div class="wiz-success-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="var(--green-90)"/><path d="M7 12.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div>
+          <div class="wiz-success-title">Perfect! You’re ready to stream EverPass</div>
+          <div class="wiz-success-text">Your TVs match the number of supported devices.<br>No additional hardware is required.</div>
+        </div>
+      </div>
+      <div class="wiz-hw-summary">
+        <div class="wiz-hw-title">Hardware Summary</div>
+        <div class="wiz-hw-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="var(--green-90)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>TVs selected: <strong>${wizTVsCount}</strong></span></div>
+        <div class="wiz-hw-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="var(--green-90)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>No additional hardware required</span></div>
+      </div>
+    </div>
+    <div class="wiz-footer">
+      <button class="wiz-skip-btn" onclick="wizBack()">${_BACK_SVG} Back</button>
+      <button class="btn btn-primary" onclick="wizComplete()">Continue</button>
+    </div>`;
+}
+
+// ── FSM transition functions ──────────────────────────────
+function openSetupModal(){
+  setupStep='av-rack'; wizAvRackAnswer='yes'; wizPath='games';
+  wizGamesCount=4; wizTVsCount=1; wizFreeCount=4; wizOrderCount=2;
+  renderWizStep();
+  document.getElementById('modal-setup-wizard').classList.add('active');
+}
+
+function closeSetupModal(){
+  document.getElementById('modal-setup-wizard').classList.remove('active');
+}
+
+function wizSetAvRack(val){
+  wizAvRackAnswer=val;
+  renderWizStep();
+}
+
+function wizQ1Continue(){
+  if(wizAvRackAnswer==='no'){wizPath='tvs';setupStep='tvs';}
+  else{wizPath='games';setupStep='games';}
+  renderWizStep();
+}
+
+function wizSetGames(n){ wizGamesCount=n; renderWizStep(); }
+
+function wizSetTVs(n){ wizTVsCount=n; renderWizStep(); }
+
+function wizChangeTVs(delta){
+  wizTVsCount=Math.max(1,Math.min(99,wizTVsCount+delta));
+  renderWizStep();
+}
+
+function wizGoRec(){ setupStep='recommendation'; renderWizStep(); }
+
+function wizBack(){
+  if(setupStep==='recommendation') setupStep=wizPath;
+  else setupStep='av-rack';
+  renderWizStep();
+}
+
+function wizChangeFree(delta){
+  const rec=parseInt(document.getElementById('wiz-price-recommended').textContent)||6;
+  wizFreeCount=Math.max(0,Math.min(rec,wizFreeCount+delta));
+  wizOrderCount=Math.max(0,rec-wizFreeCount);
+  document.getElementById('wiz-free-count').textContent=wizFreeCount;
+  document.getElementById('wiz-price-free').textContent='-'+wizFreeCount;
+  document.getElementById('wiz-order-count').textContent=wizOrderCount;
+  document.getElementById('wiz-total-label').textContent='/x'+wizOrderCount+' Device'+(wizOrderCount===1?'':'s');
+  document.getElementById('wiz-total-price').textContent='$'+_fmt(wizOrderCount);
+}
+
+function wizChangeOrder(delta){
+  wizOrderCount=Math.max(0,wizOrderCount+delta);
+  document.getElementById('wiz-order-count').textContent=wizOrderCount;
+  document.getElementById('wiz-total-label').textContent='/x'+wizOrderCount+' Device'+(wizOrderCount===1?'':'s');
+  document.getElementById('wiz-total-price').textContent='$'+_fmt(wizOrderCount);
+}
+
+function wizSkip(){closeSetupModal();goTo('page-step4');}
+function wizComplete(){closeSetupModal();goTo('page-step4');}
 
 // ── Billing toggle (Monthly / Annual) ────────────────────
 function switchBillingTab(btn){
   btn.closest('.billing-toggle').querySelectorAll('.billing-tab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
+}
+
+function toggleOsFco(){
+  const panel=document.getElementById('os-fco-panel');
+  const btn=document.getElementById('os-view-btn');
+  if(!panel||!btn)return;
+  const open=!panel.hidden;
+  panel.hidden=open;
+  btn.innerHTML=open
+    ?'View <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    :'Show <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 }
 
 // ── Device card toggle (compatible devices screen) ────────
@@ -2688,6 +3014,9 @@ function changeStreamingDevices(delta){
   const v=Math.max(0,parseInt(inp.value||0)+delta);
   inp.value=v;
 }
+
+// ── Init Step 2 summary on page load ─────────────────────
+_applyStep2Summary();
 
 // ── Copy button feedback ──────────────────────────────────
 document.querySelectorAll('.copy-btn').forEach(btn=>{
